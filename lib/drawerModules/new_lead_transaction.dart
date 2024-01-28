@@ -202,7 +202,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                   TimePickerWidget('End Time', '', endTimeController),
                   DatePickerWidget(
                       'Next Follow-Up Date*', nextFollowUpDateController),
-                  textTypeFieldWidget('Remarks :', remarksController, false),
+                  textTypeFieldWidget('Remarks', remarksController, false),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -445,7 +445,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                         } else {
                           testDriveApprovalStatus.text = 'OPEN';
                           requestedTestDriveDateTimeController.text =
-                              '${requestedTestDriveDateController.text} ${requestedTestDriveTimeController.text}';
+                              '${requestedTestDriveDateController.text} ${requestedTestDriveTimeController.text.split(' ')[1]}';
                           testdriveStatus.text = 'PENDING';
                           if (leadStatusController.text == 'TEST-DRIVE' &&
                               modelNameController.text == '' &&
@@ -533,9 +533,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 //print(json.encode(newLeadTransactionSend));
                                 if (response.toLowerCase().trim() ==
                                     'success') {
-                                  // Navigator.of(context)
-                                  //     .pushReplacementNamed(
-                                  //         '/summery');
+                                  Navigator.of(context)
+                                      .pushReplacementNamed('/landingPage');
                                 } else {
                                   setState(
                                     () {

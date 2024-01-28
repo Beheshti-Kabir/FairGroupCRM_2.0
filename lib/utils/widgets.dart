@@ -649,14 +649,15 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
-              'Saved..',
+              'Saved.',
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
         );
-        Navigator.of(context).pop();
+        Navigator.of(context).pushReplacementNamed('/landingPage');
+        // Navigator.of(context).pop();
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

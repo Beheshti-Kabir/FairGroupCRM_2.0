@@ -2,6 +2,7 @@
 import 'package:crm_app/drawerModules/dashboard.dart';
 import 'package:crm_app/drawerModules/my_head_drawer.dart';
 import 'package:crm_app/drawerModules/new_lead.dart';
+import 'package:crm_app/drawerModules/product_lead.dart';
 import 'package:crm_app/drawerModules/profile.dart';
 import 'package:crm_app/login_page.dart';
 import 'package:crm_app/utils/constants.dart';
@@ -78,6 +79,8 @@ class _AgentLandingPageState extends State<AgentLandingPage> {
       container = DashBoardModule();
     } else if (currentPage == DrawerSections.newLead) {
       container = NewLeadModule();
+    } else if (currentPage == DrawerSections.productPage) {
+      container = ProductModule();
     }
 
     return Scaffold(
@@ -130,6 +133,8 @@ class _AgentLandingPageState extends State<AgentLandingPage> {
             currentPage == DrawerSections.newLead ? true : false),
         menuItem(1, 'Profile', Icons.person_2_outlined,
             currentPage == DrawerSections.profile ? true : false),
+        menuItem(9, 'Product Page', Icons.shopping_cart_outlined,
+            currentPage == DrawerSections.productPage ? true : false),
       ]),
     );
   }
@@ -150,6 +155,9 @@ class _AgentLandingPageState extends State<AgentLandingPage> {
             } else if (id == 3) {
               titleDashboard = 'New Lead Create';
               currentPage = DrawerSections.newLead;
+            } else if (id == 9) {
+              titleDashboard = 'Product Page';
+              currentPage = DrawerSections.productPage;
             }
           });
         },
@@ -182,4 +190,5 @@ enum DrawerSections {
   profile,
   dashboard,
   newLead,
+  productPage,
 }
