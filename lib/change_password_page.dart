@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:crm_app/main.dart';
 import 'package:crm_app/utils/constants.dart';
+import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -111,67 +112,14 @@ class _changePassword extends State<ChangePasswordPage> {
         title: const Text('Change Password'),
       ),
       body: Column(children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
-          child: TextField(
-            controller: _employID,
-            decoration: InputDecoration(
-              errorText: _employIDValidate ? 'Value Can\'t Be Empty' : null,
-              labelText: 'Employ ID*',
-              labelStyle: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.grey),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-              ),
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
-          child: TextField(
-            controller: _oldPassword,
-            decoration: InputDecoration(
-              errorText: _oldPasswordValidate ? 'Value Can\'t Be Empty' : null,
-              labelText: 'Old Password*',
-              labelStyle: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.grey),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-              ),
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
-          child: TextField(
-            controller: _newPassword,
-            decoration: InputDecoration(
-              errorText: _newPasswordValidate ? 'Value Can\'t Be Empty' : null,
-              labelText: 'New Password*',
-              labelStyle: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.grey),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-              ),
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
-          child: TextField(
-            controller: _reNewPassword,
-            decoration: InputDecoration(
-              errorText:
-                  _reNewPasswordValidate ? 'Value Can\'t Be Empty' : null,
-              labelText: 'Re-Type New Password*',
-              labelStyle: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Colors.grey),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-              ),
-            ),
-          ),
-        ),
+        textTypeFieldWidget('Employee ID*', _employID, _employIDValidate),
+        textTypeFieldWidget(
+            'Old Password*', _oldPassword, _oldPasswordValidate),
+        textTypeFieldWidget(
+            'New Password*', _newPassword, _newPasswordValidate),
+        textTypeFieldWidget(
+            'Re-Type New Password*', _reNewPassword, _reNewPasswordValidate),
+
         const SizedBox(height: 15.0),
         // save
         Container(

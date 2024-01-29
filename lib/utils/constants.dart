@@ -11,8 +11,8 @@ class Constants {
   static bool selectedSearhed = false;
   static bool isDataAvailable = true;
 
-  static const version = '2.0.1';
-  static const androidCode = '25';
+  static const version = '2.0.2';
+  static const androidCode = '26';
   static String agentInitial = 'A202';
 
   static String employeeIDKey = 'EmployeeID';

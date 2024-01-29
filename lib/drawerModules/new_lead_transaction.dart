@@ -88,7 +88,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
     customerNameController.text = Constants.selectedCustomerName;
     leadNoController.text = Constants.selectedLeadNo;
     phoneNumberController.text = Constants.selectedPhoneNumber;
-    customerDOBController.text = Constants.selectedDOB;
+    customerDOBController.text = '';
     setState(() {});
   }
 
@@ -425,6 +425,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                   Center(
                     child: GestureDetector(
                       onTap: () async {
+                        print('sami');
                         final DateTime dateTimeNow = DateTime.now();
                         final dateTimeCreatedAt =
                             DateTime.parse(nextFollowUpDateController.text);
@@ -434,6 +435,9 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                         leadProspectTypeController.text = leadProspectTypeList[
                             leadStatusList.indexOf(leadStatusController.text)];
                         print(leadProspectTypeController.text);
+
+                        //test drive data update
+
                         if (leadStatusController.text != 'TEST-DRIVE') {
                           modelNameController.text = '';
                           requestedTestDriveDateController.text = '';
@@ -544,6 +548,44 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                   print(response);
                                 }
                               }
+                            }
+                          }
+                        } else {
+                          if (isPressed) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Working on it..',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                backgroundColor: Colors.redAccent,
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Saving..',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                backgroundColor: Colors.redAccent,
+                              ),
+                            );
+                            isPressed = true;
+                            var response = await saveNewLeadTransaction();
+                            //print(json.encode(newLeadTransactionSend));
+                            if (response.toLowerCase().trim() == 'success') {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/landingPage');
+                            } else {
+                              setState(
+                                () {
+                                  isPressed = false;
+                                },
+                              );
+                              print(response);
                             }
                           }
                         }

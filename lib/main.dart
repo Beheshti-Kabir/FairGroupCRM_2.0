@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: <String, WidgetBuilder>{
           '/logInPage': (BuildContext context) => const LoginPage(),
-          '/changePassword': (BuildContext context) =>
+          '/changePasswordPage': (BuildContext context) =>
               const ChangePasswordPage(),
           '/landingPage': (BuildContext context) => const LandingPage(),
           '/agentLandingPage': (BuildContext context) =>
