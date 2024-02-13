@@ -112,6 +112,7 @@ getData() async {
 }
 
 getLeadSearchData(
+  String customerName,
   String phoneNumber,
   String companyName,
   String leadNo,
@@ -119,7 +120,7 @@ getLeadSearchData(
   String toDate,
   String fromDate,
   String allSearch,
-  String teshDriveStatus,
+  String testDriveStatus,
 ) async {
   String localURL = Constants.globalURL;
   var response = await http.post(Uri.parse('$localURL/getDataByStatus'),
@@ -131,12 +132,13 @@ getLeadSearchData(
         'userID': Constants.employeeId,
         'phoneNo': phoneNumber,
         'companyName': companyName,
+        'customerName': customerName,
         'allSearch': allSearch,
         'leadNo': leadNo,
         'stepType': stepType,
         'toDate': toDate,
         'fromDate': fromDate,
-        'testDriveApprovalStatus': teshDriveStatus
+        'testDriveApprovalStatus': testDriveStatus
       }));
 
   var statusValue = jsonDecode(response.body)['leadList'];

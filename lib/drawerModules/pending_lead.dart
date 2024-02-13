@@ -19,8 +19,9 @@ class _PendingLeadModuleState extends State<PendingLeadModule> {
   }
 
   getAPIData() async {
-    getData();
+    // getData();
     statusValue = await getFollowUpData();
+    print(statusValue.toString());
     setState(() {});
   }
 
@@ -40,15 +41,22 @@ class _PendingLeadModuleState extends State<PendingLeadModule> {
                   children: <Widget>[
                     const SizedBox(
                       height: 20.0,
-                      // width: 100.0,fa
                     ),
                     ListViewWidget(statusValue, false, false),
                   ],
                 ),
               ),
             )
-          : const Center(
-              child: CircularProgressIndicator(),
+          : const Column(
+              children: [
+                SizedBox(
+                  height: 20.0,
+                  // width: 100.0,fa
+                ),
+                Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ],
             ),
     ]);
   }

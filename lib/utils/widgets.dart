@@ -478,21 +478,10 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                   ),
                                 ),
                               ])
-                            : TableRow(children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(left: 4.0),
-                                  child: Text('Approval Status',
-                                      style: TextStyle(fontSize: 20.0)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 4.0),
-                                  child: Text(
-                                      widget.listValue[index]
-                                              ['tdApprovalStatus']
-                                          .toString(),
-                                      style: const TextStyle(fontSize: 20.0)),
-                                ),
-                              ]),
+                            : tableRowWidget(
+                                'Approval Status',
+                                widget.listValue[index]['tdApprovalStatus']
+                                    .toString()),
                         tableRowWidget('Requested Time',
                             "${widget.listValue[index]['tdRequestedTime'].toString().split(" ")[0]}\n \n${widget.listValue[index]['tdRequestedTime'].toString().split(" ")[1]}"),
                         tableRowWidget('Test-Drive Status',
@@ -1206,10 +1195,11 @@ class PopUpWidget extends StatefulWidget {
   final String leadNo;
   final String phoneNumber;
   final String companyName;
+  final String customerName;
   final String allSearch;
   //final Function callBackFunction;
-  const PopUpWidget(
-      this.leadNo, this.phoneNumber, this.companyName, this.allSearch,
+  const PopUpWidget(this.leadNo, this.customerName, this.phoneNumber,
+      this.companyName, this.allSearch,
       {super.key}
       //    {super.key, required this.callBackFunction}
       //  ,{Key? key, required this.callBackFunction}
@@ -1231,6 +1221,7 @@ class _PopUpWidgetState extends State<PopUpWidget> {
 
   checkLead() async {
     statusValue = await getLeadSearchData(
+      widget.customerName,
       widget.phoneNumber,
       widget.companyName,
       widget.leadNo,

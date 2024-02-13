@@ -37,6 +37,7 @@ class _DateSearchModuleState extends State<DateSearchModule> {
       '',
       '',
       '',
+      '',
       leadStatusController.text,
       toDateController.text,
       fromDateController.text,

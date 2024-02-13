@@ -623,6 +623,15 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                         fontSize: 20,
                         color: Colors.grey),
                   ),
+                  textTypeFieldWidget(
+                      'Customer Name', customerNameController, false),
+                  const Text(
+                    'OR',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.grey),
+                  ),
                   numberTypeFieldWidget(
                       'Phone Number', phoneNumberController, false),
                   Container(
@@ -631,7 +640,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                     child: GestureDetector(
                       onTap: () async {
                         if (phoneNumberController.text.isEmpty &&
-                            leadNoController.text.isEmpty) {
+                            leadNoController.text.isEmpty &&
+                            customerNameController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text(
@@ -648,6 +658,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             builder: (BuildContext context) => Dialog(
                               child: PopUpWidget(
                                 leadNoController.text,
+                                customerNameController.text,
                                 phoneNumberController.text, '', 'FALSE',
                                 // callBackFunction: refresh(),
                               ),
