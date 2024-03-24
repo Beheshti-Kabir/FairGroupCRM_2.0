@@ -39,6 +39,36 @@ class _PendingLeadModuleState extends State<PendingLeadModule> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 0.0),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.lightBlueAccent,
+                            width: 3.0,
+                          ),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: SizedBox(
+                        height: 60.0,
+                        //width: MediaQuery.of(context).size.width,
+                        child: Material(
+                          borderRadius: BorderRadius.circular(25.0),
+                          // borderRadius: BorderRadius.(20.0),
+                          shadowColor: const Color.fromARGB(255, 65, 133, 250),
+                          color: Colors.white,
+                          // elevation: 7.0,
+                          child: Center(
+                            child: Text(
+                              'Total Pending Lead\n${statusValue.length.toString()}',
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 20.0,
                     ),

@@ -20,6 +20,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
   String employID = '';
   final phoneNumberController = TextEditingController();
   final leadNoController = TextEditingController();
+  final companyNameController = TextEditingController();
   final customerNameController = TextEditingController();
   final customerDOBController = TextEditingController();
   final followUpModeController = TextEditingController();
@@ -632,6 +633,15 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                         fontSize: 20,
                         color: Colors.grey),
                   ),
+                  textTypeFieldWidget(
+                      'Company Name', companyNameController, false),
+                  const Text(
+                    'OR',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.grey),
+                  ),
                   numberTypeFieldWidget(
                       'Phone Number', phoneNumberController, false),
                   Container(
@@ -641,7 +651,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                       onTap: () async {
                         if (phoneNumberController.text.isEmpty &&
                             leadNoController.text.isEmpty &&
-                            customerNameController.text.isEmpty) {
+                            customerNameController.text.isEmpty &&
+                            companyNameController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text(
@@ -659,7 +670,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                               child: PopUpWidget(
                                 leadNoController.text,
                                 customerNameController.text,
-                                phoneNumberController.text, '', 'FALSE',
+                                phoneNumberController.text,
+                                companyNameController.text, 'FALSE',
                                 // callBackFunction: refresh(),
                               ),
                             ),

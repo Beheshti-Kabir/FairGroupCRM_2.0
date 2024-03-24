@@ -500,7 +500,7 @@ class _ProductModuleState extends State<ProductModule> {
                     ),
                   )
                 ],
-              )
+              ),
       ],
     );
   }

@@ -6,6 +6,25 @@ import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+final productNameController = TextEditingController();
+final productModelController = TextEditingController();
+final productStockController = TextEditingController();
+final quantityController = TextEditingController();
+final unitPriceController = TextEditingController();
+final prospectTypeCrontroller = TextEditingController();
+
+int productListNumber = 0;
+
+bool productLoaded = false;
+late bool isNew;
+late bool isDeleted;
+
+List productNameList = [];
+List productPriceList = [];
+List productModelList = [];
+List productSKUList = [];
+List<String> prospectTypeList = ['', 'HOT', 'WARM', 'COLD'];
+
 class NewLeadModule extends StatefulWidget {
   const NewLeadModule({Key? key}) : super(key: key);
 
@@ -38,6 +57,7 @@ class _NewLeadModuleState extends State<NewLeadModule> {
   bool addressValidator = false;
   bool remarksValidator = false;
   bool isSaved = false;
+  String sbu = '';
 
   List leadCategoryList = ['', 'B2B', 'HP', 'CASH', 'GRT'];
   List financeList = ['', 'YES', 'NO'];
@@ -45,12 +65,22 @@ class _NewLeadModuleState extends State<NewLeadModule> {
   List paymentMethodList = [''];
   List salesPersonList = [''];
   List leadSourceList = [''];
+  List productNameList = [];
+  List productPriceList = [];
+  List productModelList = [];
+  List productSKUList = [];
 
   @override
   void initState() {
     super.initState();
     Constants.selectedSearhed = false;
+    getSBU();
+
     prepareData();
+  }
+
+  getSBU() async {
+    sbu = await getLocalEmployeeSBU();
   }
 
   prepareData() async {
@@ -128,12 +158,14 @@ class _NewLeadModuleState extends State<NewLeadModule> {
     String localURL = Constants.globalURL;
     String userID = await getLocalEmployeeID();
 
-    var response = await http.post(Uri.parse('$localURL/saveLeadInfoNew'),
-        headers: <String, String>{
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: jsonEncode(<String, String>{
+    var response = await http.post(
+      Uri.parse('$localURL/saveLeadInfoNew'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: jsonEncode(
+        <String, String>{
           'customerName': customerNameController.text,
           'customerContact': phoneNumberController.text,
           'customerAddress': addressController.text,
@@ -152,7 +184,14 @@ class _NewLeadModuleState extends State<NewLeadModule> {
           'bsoType': bsoController.text,
           'leadProspectType': 'IN-PROGRESS',
           'copiedFrom': coppiedFromController.text,
-        }));
+          'productName': productNameController.text,
+          'productModel': productModelController.text,
+          'quantity': quantityController.text,
+          'unitPrice': unitPriceController.text,
+          'prospectType': prospectTypeCrontroller.text,
+        },
+      ),
+    );
 
     print('Response=>${response.statusCode}');
 
@@ -160,6 +199,24 @@ class _NewLeadModuleState extends State<NewLeadModule> {
       return json.decode(response.body)['result'];
     } else {
       return 'Server issues';
+    }
+  }
+
+  ifEmptyCheckFunction() {
+    if (professionController.text.isNotEmpty &&
+        salesPersionController.text.isNotEmpty &&
+        leadSourceController.text.isNotEmpty &&
+        remarksController.text.isNotEmpty &&
+        fincanceController.text.isNotEmpty &&
+        nextFollowUpDateController.text.isNotEmpty &&
+        productNameController.text.isNotEmpty &&
+        productModelController.text.isNotEmpty &&
+        quantityController.text.isNotEmpty &&
+        unitPriceController.text.isNotEmpty &&
+        prospectTypeCrontroller.text.isNotEmpty) {
+      return true;
+    } else {
+      false;
     }
   }
 
@@ -301,6 +358,55 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         'Remarks*', remarksController, remarksValidator),
                     DropDownWidget('Sales Person* :', 'Sales Person* :',
                         salesPersonList, salesPersionController),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: Colors.blue[500],
+                        height: 60.0,
+                        width: MediaQuery.of(context).size.width,
+                        child: const Text(
+                          'Product Details',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () async {
+                        productNameController.text = '';
+                        await showDialog(
+                          context: context,
+                          builder: (BuildContext context) => const Dialog(
+                            child: ProductAddModule(
+                                // callBackFunction: refresh(),
+                                ),
+                          ),
+                        );
+
+                        setState(() {});
+                      },
+                      child: textShowFieldWidget(
+                          'Product Name', productNameController.text),
+                    ),
+                    textShowFieldWidget(
+                        'Product Model', productModelController.text),
+                    (sbu == 'FTL')
+                        ? textShowFieldWidget(
+                            'Stock', productStockController.text)
+                        : Container(),
+                    numberTypeFieldWidget(
+                        'Quantity', quantityController, false),
+                    numberTypeFieldWidget(
+                        'Unit Price', unitPriceController, false),
+                    DropDownWidget(
+                        'Enquity Step Type* :',
+                        'Enquity Step Type* :',
+                        prospectTypeList,
+                        prospectTypeCrontroller),
                     Container(
                       padding: const EdgeInsets.only(
                           top: 0.0, left: 20.0, right: 20.0),
@@ -317,14 +423,8 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                               backgroundColor: Colors.redAccent,
                             ),
                           );
-                          if (isValid &&
-                              !isSaved &&
-                              professionController.text.isNotEmpty &&
-                              salesPersionController.text.isNotEmpty &&
-                              leadSourceController.text.isNotEmpty &&
-                              remarksController.text.isNotEmpty &&
-                              fincanceController.text.isNotEmpty &&
-                              nextFollowUpDateController.text.isNotEmpty) {
+                          bool ifEmpty = ifEmptyCheckFunction();
+                          if (isValid && !isSaved && ifEmpty) {
                             setState(() => isSaved = true);
                             var response = await saveLeadInfo();
 
@@ -391,6 +491,219 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                 ),
               ),
       ],
+    );
+  }
+}
+
+class ProductAddModule extends StatefulWidget {
+  //final Function callBackFunction;
+  const ProductAddModule({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<ProductAddModule> createState() => _ProductAddModuleState();
+}
+
+class _ProductAddModuleState extends State<ProductAddModule> {
+  getProduct() async {
+    setState(() {
+      productLoaded = false;
+      productNameList = [];
+      productPriceList = [];
+      productModelList = [];
+      productSKUList = [];
+    });
+
+    String localURL = Constants.globalURL;
+    var response = await http.post(Uri.parse('$localURL/getProductList'),
+        //Uri.parse('http://10.100.17.125:8090/rbd/leadInfoApi/getProductList'),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: jsonEncode(<String, String>{
+          'productName': productNameController.text,
+        }));
+
+    var productListJSON = json.decode(response.body);
+
+    productListNumber = productListJSON.length;
+
+    for (int i = 0; i < productListNumber; i++) {
+      productNameList.add(productListJSON[i]['productName'].toString());
+      productModelList.add(productListJSON[i]['productDescription'].toString());
+      productPriceList.add(productListJSON[i]['productPrice'].toString());
+      productSKUList.add(productListJSON[i]['productCode'].toString());
+    }
+
+    setState(() {
+      productLoaded = true;
+    });
+  }
+
+  getProductStock(String code) async {
+    print("inside getProductStock");
+
+    String localURL = Constants.globalURL;
+    var response = await http.post(Uri.parse('$localURL/getProductListStock'),
+        headers: <String, String>{
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: jsonEncode(<String, String>{
+          'productCode': code,
+          'companyCode': '2000',
+        }));
+
+    return json.decode(response.body)[0]['productStock'].toString();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // height: 600,
+      // width: 200,
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 50,
+            child: TextField(
+              controller: productNameController,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: () async {
+                      await getProduct();
+                    }),
+                hintText: 'Type here for product search',
+                hintStyle: const TextStyle(color: Colors.grey),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          (productNameController.text.length > 1)
+              ? (productLoaded)
+                  ? (productListNumber > 0)
+                      ? Expanded(
+                          child: ListView.builder(
+                              scrollDirection: Axis.vertical,
+                              itemCount: productListNumber,
+                              primary: false,
+                              shrinkWrap: true,
+                              itemBuilder: (BuildContext context, int index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    productNameController.text =
+                                        productNameList[index];
+                                    unitPriceController.text =
+                                        productPriceList[index];
+                                    productModelController.text =
+                                        productModelList[index];
+                                    quantityController.text = '1';
+                                    productStockController.text = '0';
+                                    if (Constants.companyCode == '2000') {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            'Searching For Stock!!\nPlease wait for couple of seconds. ',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          backgroundColor: Colors.redAccent,
+                                        ),
+                                      );
+                                      productStockController.text =
+                                          getProductStock(productSKUList[index])
+                                              .toString();
+                                    }
+
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(bottom: 5.0),
+                                    child: Container(
+                                      padding: const EdgeInsets.all(5.0),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 1.0,
+                                          )),
+                                      child: Column(
+                                        children: <Widget>[
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  'Product Name : ${productNameList[index]}',
+                                                  style: const TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 15),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  'Product Model : ${productModelList[index]}',
+                                                  style: const TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 15),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  'Product Price : ${productPriceList[index]}',
+                                                  style: const TextStyle(
+                                                      color: Colors.grey,
+                                                      fontSize: 15),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                        )
+                      : const Center(
+                          child: Column(
+                          children: [
+                            Text(
+                              'No Product Found!! \n\n\nPlease Search With A Different Product Name',
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                          ],
+                        ))
+                  : const Center(
+                      child: CircularProgressIndicator(),
+                    )
+              : const Center(
+                  child: Text(
+                    'Type Minimum 2 Characters \nThen Press Search Button',
+                    textAlign: TextAlign.center,
+                  ),
+                )
+        ],
+      ),
     );
   }
 }
