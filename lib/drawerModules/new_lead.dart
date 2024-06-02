@@ -5,6 +5,7 @@ import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+// import 'package:path/path.dart';
 
 final productNameController = TextEditingController();
 final productModelController = TextEditingController();
@@ -48,18 +49,112 @@ class _NewLeadModuleState extends State<NewLeadModule> {
   final salesPersionController = TextEditingController();
   final nextFollowUpDateController = TextEditingController();
   final bsoController = TextEditingController();
+  final tentativePurchaseDateController = TextEditingController();
+  final districtNameController = TextEditingController();
+  final currentCarNameController = TextEditingController();
+  final verticalController = TextEditingController();
   final coppiedFromController = TextEditingController();
 
   bool phoneNumberValidator = false;
   bool companyNameValidator = false;
   bool customerNameValidator = false;
+  bool currentCarNameValidator = false;
   bool emailValidator = false;
   bool addressValidator = false;
   bool remarksValidator = false;
   bool isSaved = false;
   String sbu = '';
 
-  List leadCategoryList = ['', 'B2B', 'HP', 'CASH', 'GRT'];
+  List leadCategoryList = ['', 'CASH', 'HP', 'CARD', 'MFS', 'DEALER'];
+  List verticalList = [
+    '',
+    'BFSI',
+    'NGO & MFI',
+    'RMG & TEXTILE',
+    'PHARMA & AGRO',
+    'HOSPITAL & CLINICS',
+    'EDUCATION',
+    'NEWS & MEDIA',
+    'FMCG',
+    'TELCO, ISP & ITES',
+    'LOGISTICS & TRANSPORTATION',
+    'HOSPITALITY & TOURISM',
+    'GOVT. & DEFENSE',
+    'ENERGY & POWER',
+    'REAL-ESTATE & CONSTRUCTION',
+    'CTG- RMG & SHIPPING',
+    'CTG- FMCG & OTHERS',
+    'OTHERS',
+    'SHOWROOM'
+  ];
+  List districtList = [
+    '',
+    'Bagerhat District',
+    'Bandarban District',
+    'Barguna District',
+    'Barisal District',
+    'Bhola District',
+    'Bogra District',
+    'Brahmanbaria District',
+    'Chandpur District',
+    'Chapai Nawabganj District',
+    'Chittagong District',
+    'Chuadanga District',
+    'Comilla District',
+    'Cox\'s Bazar District',
+    'Dhaka District',
+    'Dinajpur District',
+    'Faridpur District',
+    'Feni District',
+    'Gaibandha District',
+    'Gazipur District',
+    'Gopalganj District',
+    'Habiganj District',
+    'Jamalpur District',
+    'Jessore District',
+    'Jhalokati District',
+    'Jhenaidah District',
+    'Joypurhat District',
+    'Khagrachari District',
+    'Khulna District',
+    'Kishoreganj District',
+    'Kurigram District',
+    'Kushtia District',
+    'Lakshmipur District',
+    'Lalmonirhat District',
+    'Madaripur District',
+    'Magura District',
+    'Manikganj District',
+    'Meherpur District',
+    'Moulvibazar District',
+    'Munshiganj District',
+    'Mymensingh District',
+    'Mymensingh District',
+    'Naogaon District',
+    'Narail District',
+    'Narayanganj District',
+    'Narsingdi District',
+    'Natore District',
+    'Netrokona District',
+    'Nilphamari District',
+    'Noakhali District',
+    'Pabna District',
+    'Panchagarh District',
+    'Patuakhali District',
+    'Pirojpur District',
+    'Rajbari District',
+    'Rajshahi District',
+    'Rangamati District',
+    'Rangpur District',
+    'Satkhira District',
+    'Shariatpur District',
+    'Sherpur District',
+    'Sirajganj District',
+    'Sunamganj District',
+    'Sylhet District',
+    'Tangail District',
+    'Thakurgaon District',
+  ];
   List financeList = ['', 'YES', 'NO'];
   List professionList = [''];
   List paymentMethodList = [''];
@@ -141,13 +236,19 @@ class _NewLeadModuleState extends State<NewLeadModule> {
       } else {
         remarksValidator = false;
       }
+      if (currentCarNameController.text.isEmpty) {
+        currentCarNameValidator = true;
+      } else {
+        currentCarNameValidator = false;
+      }
     });
     if (!phoneNumberValidator &&
         !customerNameValidator &&
         !companyNameValidator &&
         !addressValidator &&
         !emailValidator &&
-        !remarksValidator) {
+        !remarksValidator &&
+        !currentCarNameValidator) {
       return true;
     } else {
       return false;
@@ -189,6 +290,10 @@ class _NewLeadModuleState extends State<NewLeadModule> {
           'quantity': quantityController.text,
           'unitPrice': unitPriceController.text,
           'prospectType': prospectTypeCrontroller.text,
+          'currentCarName': currentCarNameController.text,
+          'vertical': verticalController.text,
+          'districtName': districtNameController.text,
+          'tentativePurchaseDate': tentativePurchaseDateController.text,
         },
       ),
     );
@@ -209,6 +314,9 @@ class _NewLeadModuleState extends State<NewLeadModule> {
         remarksController.text.isNotEmpty &&
         fincanceController.text.isNotEmpty &&
         nextFollowUpDateController.text.isNotEmpty &&
+        verticalController.text.isNotEmpty &&
+        districtNameController.text.isNotEmpty &&
+        tentativePurchaseDateController.text.isNotEmpty &&
         productNameController.text.isNotEmpty &&
         productModelController.text.isNotEmpty &&
         quantityController.text.isNotEmpty &&
@@ -237,6 +345,10 @@ class _NewLeadModuleState extends State<NewLeadModule> {
     nextFollowUpDateController.clear();
     bsoController.clear();
     coppiedFromController.clear();
+    verticalController.clear();
+    currentCarNameController.clear();
+    districtNameController.clear();
+    tentativePurchaseDateController.clear();
   }
 
   @override
@@ -323,7 +435,7 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                     const Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
-                        "Please make sure the number is 11 digit for Bangladeshi Customers.",
+                        "Please make sure the number is 11 digit for Bangladeshi Customers. And don\'t use characters like - or + or space in the phone number",
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -333,10 +445,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         'Email Address*', emailController, emailValidator),
                     textTypeFieldWidget(
                         'Address*', addressController, addressValidator),
+                    DropDownWidget('District Name* ', 'District Name* :',
+                        districtList, districtNameController),
                     const Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
-                        "Please don't use any special carecter like * & # in Address field.",
+                        "Please don't use any special characters like * & # in Address field.",
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
@@ -344,12 +458,16 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         'Customer Date of Birth ', customerDOBController),
                     DropDownWidget('Profession* :', 'Profession :',
                         professionList, professionController),
+                    textTypeFieldWidget('Current Car Name',
+                        currentCarNameController, currentCarNameValidator),
                     DropDownWidget('Lead Category :', 'Lead Category :',
                         leadCategoryList, leadCategoryController),
                     DropDownWidget('Payment Method :', 'Payment Method :',
                         paymentMethodList, paymentMethodController),
                     DropDownWidget('Lead Source* :', 'Lead Source :',
                         leadSourceList, leadSourceController),
+                    DropDownWidget('Vertical* :', 'Vertical* :', verticalList,
+                        verticalController),
                     DropDownWidget('Finance* :', 'Finance :', financeList,
                         fincanceController),
                     DatePickerWidget(
@@ -358,6 +476,8 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         'Remarks*', remarksController, remarksValidator),
                     DropDownWidget('Sales Person* :', 'Sales Person* :',
                         salesPersonList, salesPersionController),
+                    DatePickerWidget('Tentative Purchase Date',
+                        tentativePurchaseDateController),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),
                       child: Container(
@@ -403,8 +523,8 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                     numberTypeFieldWidget(
                         'Unit Price', unitPriceController, false),
                     DropDownWidget(
-                        'Enquity Step Type* :',
-                        'Enquity Step Type* :',
+                        'Inquiry Step Type* :',
+                        'Inquiry Step Type* :',
                         prospectTypeList,
                         prospectTypeCrontroller),
                     Container(

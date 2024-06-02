@@ -221,7 +221,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                           Padding(
                             padding: const EdgeInsets.only(top: 8, left: 15),
                             child: Text(
-                              'Enquiry Step Type* :',
+                              'Inquiry Step Type* :',
                               style: TextStyle(
                                   color: Colors.blue[700],
                                   fontSize: 16,
