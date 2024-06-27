@@ -4,6 +4,7 @@ import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 // import 'package:path/path.dart';
 
@@ -360,9 +361,9 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                 children: [
                   textTypeFieldWidget(
                       'Company Name', companyNameController, false),
-                  const Text(
+                  Text(
                     'OR',
-                    style: TextStyle(
+                    style: GoogleFonts.mcLaren(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.grey),
@@ -377,11 +378,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         if (phoneNumberController.text.isEmpty &&
                             companyNameController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: GoogleFonts.mcLaren(
+                                    fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -411,11 +413,11 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                   color: Colors.white, fontSize: 10.0),
                             ),
                           ),
@@ -432,11 +434,11 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         customerNameController, customerNameValidator),
                     numberTypeFieldWidget('Contact Number*',
                         phoneNumberController, phoneNumberValidator),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         "Please make sure the number is 11 digit for Bangladeshi Customers. And don\'t use characters like - or + or space in the phone number",
-                        style: TextStyle(color: Colors.grey),
+                        style: GoogleFonts.mcLaren(color: Colors.grey),
                       ),
                     ),
                     textTypeFieldWidget('Company Name*', companyNameController,
@@ -447,11 +449,11 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         'Address*', addressController, addressValidator),
                     DropDownWidget('District Name* ', 'District Name* :',
                         districtList, districtNameController),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         "Please don't use any special characters like * & # in Address field.",
-                        style: TextStyle(color: Colors.grey),
+                        style: GoogleFonts.mcLaren(color: Colors.grey),
                       ),
                     ),
                     DatePickerWidget(
@@ -485,9 +487,9 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         color: Colors.blue[500],
                         height: 60.0,
                         width: MediaQuery.of(context).size.width,
-                        child: const Text(
+                        child: Text(
                           'Product Details',
-                          style: TextStyle(
+                          style: GoogleFonts.mcLaren(
                             fontSize: 20.0,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -534,11 +536,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         onTap: () async {
                           bool isValid = formValidator();
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               content: Text(
                                 'Saving..',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: GoogleFonts.mcLaren(
+                                    fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -561,12 +564,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                             } else {
                               setState(() => isSaved = false);
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
+                                SnackBar(
                                   content: Text(
                                     'Server Issue!!',
                                     textAlign: TextAlign.center,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: GoogleFonts.mcLaren(
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -574,11 +577,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                             }
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
                                   'Some mandatory fields may be missing!!',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.mcLaren(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -595,11 +599,11 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                             shadowColor: Colors.lightBlueAccent,
                             color: Colors.blue[800],
                             elevation: 7.0,
-                            child: const Center(
+                            child: Center(
                               child: Text(
                                 "Save Lead",
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: GoogleFonts.mcLaren(
                                     color: Colors.white, fontSize: 10.0),
                               ),
                             ),
@@ -690,6 +694,7 @@ class _ProductAddModuleState extends State<ProductAddModule> {
           SizedBox(
             height: 50,
             child: TextField(
+              style: GoogleFonts.mcLaren(),
               controller: productNameController,
               decoration: InputDecoration(
                 suffixIcon: IconButton(
@@ -698,7 +703,7 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                       await getProduct();
                     }),
                 hintText: 'Type here for product search',
-                hintStyle: const TextStyle(color: Colors.grey),
+                hintStyle: GoogleFonts.mcLaren(color: Colors.grey),
               ),
             ),
           ),
@@ -728,11 +733,11 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                     if (Constants.companyCode == '2000') {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        const SnackBar(
+                                        SnackBar(
                                           content: Text(
                                             'Searching For Stock!!\nPlease wait for couple of seconds. ',
                                             textAlign: TextAlign.center,
-                                            style: TextStyle(
+                                            style: GoogleFonts.mcLaren(
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           backgroundColor: Colors.redAccent,
@@ -763,7 +768,7 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Name : ${productNameList[index]}',
-                                                  style: const TextStyle(
+                                                  style: GoogleFonts.mcLaren(
                                                       color: Colors.grey,
                                                       fontSize: 15),
                                                 ),
@@ -775,7 +780,7 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Model : ${productModelList[index]}',
-                                                  style: const TextStyle(
+                                                  style: GoogleFonts.mcLaren(
                                                       color: Colors.grey,
                                                       fontSize: 15),
                                                 ),
@@ -787,7 +792,7 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Price : ${productPriceList[index]}',
-                                                  style: const TextStyle(
+                                                  style: GoogleFonts.mcLaren(
                                                       color: Colors.grey,
                                                       fontSize: 15),
                                                 ),
@@ -801,14 +806,15 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                 );
                               }),
                         )
-                      : const Center(
+                      : Center(
                           child: Column(
                           children: [
                             Text(
                               'No Product Found!! \n\n\nPlease Search With A Different Product Name',
+                              style: GoogleFonts.mcLaren(),
                               textAlign: TextAlign.center,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 30.0,
                             ),
                           ],
@@ -816,9 +822,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                   : const Center(
                       child: CircularProgressIndicator(),
                     )
-              : const Center(
+              : Center(
                   child: Text(
                     'Type Minimum 2 Characters \nThen Press Search Button',
+                    style: GoogleFonts.mcLaren(),
                     textAlign: TextAlign.center,
                   ),
                 )

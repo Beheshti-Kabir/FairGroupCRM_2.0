@@ -16,6 +16,7 @@ import 'package:crm_app/login_page.dart';
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -114,7 +115,7 @@ class _LandingPageState extends State<LandingPage> {
         title: Text(
           '$titleDashboard For $employID',
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white),
+          style: GoogleFonts.mcLaren(color: Colors.white),
         ),
         backgroundColor: Colors.blueAccent,
         elevation: 20.0,
@@ -239,7 +240,7 @@ class _LandingPageState extends State<LandingPage> {
                 flex: 3,
                 child: Text(
                   title,
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                  style: GoogleFonts.mcLaren(color: Colors.black, fontSize: 16),
                 ),
               )
             ],

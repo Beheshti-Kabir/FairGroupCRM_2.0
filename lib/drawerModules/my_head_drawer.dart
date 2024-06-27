@@ -1,5 +1,6 @@
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
   const MyHeaderDrawer({Key? key}) : super(key: key);
@@ -45,11 +46,11 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
           ),
           Text(
             employName,
-            style: const TextStyle(color: Colors.white, fontSize: 20),
+            style: GoogleFonts.mcLaren(color: Colors.white, fontSize: 20),
           ),
           Text(
             employID,
-            style: const TextStyle(color: Colors.white, fontSize: 14),
+            style: GoogleFonts.mcLaren(color: Colors.white, fontSize: 14),
           )
         ],
       ),

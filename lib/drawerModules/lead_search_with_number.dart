@@ -1,6 +1,7 @@
 import 'package:crm_app/utils/api.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NumberSearchModule extends StatefulWidget {
   const NumberSearchModule({Key? key}) : super(key: key);
@@ -41,11 +42,11 @@ class _NumberSearchModuleState extends State<NumberSearchModule> {
       if (statusValue.isEmpty) {
         isSearching = false;
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'NO DATA IN THIS LEAD MODE...',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -71,9 +72,9 @@ class _NumberSearchModuleState extends State<NumberSearchModule> {
               ),
               numberTypeFieldWidget(
                   'Lead No*', leadNoController, leadNoValidate),
-              const Text(
+              Text(
                 'OR',
-                style: TextStyle(
+                style: GoogleFonts.mcLaren(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.grey),
@@ -90,12 +91,12 @@ class _NumberSearchModuleState extends State<NumberSearchModule> {
                                 leadNoController.text.isNotEmpty
                             ? setLoadingScreen()
                             : ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
+                                SnackBar(
                                   content: Text(
                                     'Input Phone Number or Lead No!!',
                                     textAlign: TextAlign.center,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: GoogleFonts.mcLaren(
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -109,10 +110,10 @@ class _NumberSearchModuleState extends State<NumberSearchModule> {
                           shadowColor: Colors.blueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               'Search',
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),

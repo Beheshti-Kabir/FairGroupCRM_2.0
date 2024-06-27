@@ -1,5 +1,6 @@
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfileModule extends StatefulWidget {
   const ProfileModule({Key? key}) : super(key: key);
@@ -87,8 +88,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     Flexible(
                       child: Text(
                         employName,
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 20),
+                        style: GoogleFonts.mcLaren(
+                            color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -106,8 +107,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     Flexible(
                       child: Text(
                         employSBU,
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 20),
+                        style: GoogleFonts.mcLaren(
+                            color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -125,8 +126,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     Flexible(
                       child: Text(
                         employEmail,
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 20),
+                        style: GoogleFonts.mcLaren(
+                            color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -143,7 +144,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     ),
                     Text(
                       employContact,
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      style: GoogleFonts.mcLaren(
+                          color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),
@@ -159,7 +161,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     ),
                     Text(
                       employID,
-                      style: const TextStyle(color: Colors.black, fontSize: 20),
+                      style: GoogleFonts.mcLaren(
+                          color: Colors.black, fontSize: 20),
                     )
                   ],
                 )
@@ -179,13 +182,13 @@ class _ProfileModuleState extends State<ProfileModule> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(children: [
-                const Row(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Administrator Information",
-                      style: TextStyle(
+                      style: GoogleFonts.mcLaren(
                           color: Colors.blue,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
@@ -205,10 +208,11 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    const Flexible(
+                    Flexible(
                       child: Text(
                         'Rahmat Ullah Farhad',
-                        style: TextStyle(color: Colors.black, fontSize: 20),
+                        style: GoogleFonts.mcLaren(
+                            color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -223,10 +227,11 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    const Flexible(
+                    Flexible(
                       child: Text(
                         'Information Technology Software Support',
-                        style: TextStyle(color: Colors.black, fontSize: 20),
+                        style: GoogleFonts.mcLaren(
+                            color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -241,9 +246,10 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    const Text(
+                    Text(
                       'rahmat.u@fdl.com.bd',
-                      style: TextStyle(color: Colors.black, fontSize: 20),
+                      style: GoogleFonts.mcLaren(
+                          color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),
@@ -257,9 +263,10 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    const Text(
+                    Text(
                       '01777702090',
-                      style: TextStyle(color: Colors.black, fontSize: 20),
+                      style: GoogleFonts.mcLaren(
+                          color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),

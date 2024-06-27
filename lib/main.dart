@@ -41,7 +41,8 @@ class MyApp extends StatelessWidget {
         builder: (context, widget) {
           /// Always Constant font size though change system font size
           return MediaQuery(
-            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: const TextScaler.linear(1.0)),
             child: widget!,
           );
         });

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/widgets.dart';
@@ -55,11 +56,11 @@ class _PictureModuleState extends State<PictureModule> {
     } catch (e) {
       print(e.toString());
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Mendatory Picture Missing!!',
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -94,11 +95,11 @@ class _PictureModuleState extends State<PictureModule> {
       return json.decode(response.body)['result'];
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Server Issue!!',
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -156,7 +157,7 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Visiting Card Front* :   ',
-                                        style: TextStyle(
+                                        style: GoogleFonts.mcLaren(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.blue[700],
                                             fontSize: 16),
@@ -221,7 +222,7 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Visiting Card Back* :   ',
-                                        style: TextStyle(
+                                        style: GoogleFonts.mcLaren(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.blue[700],
                                             fontSize: 16),
@@ -286,7 +287,7 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Group Picture :   ',
-                                        style: TextStyle(
+                                        style: GoogleFonts.mcLaren(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.blue[700],
                                             fontSize: 16),
@@ -351,7 +352,7 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Selfie* :   ',
-                                        style: TextStyle(
+                                        style: GoogleFonts.mcLaren(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.blue[700],
                                             fontSize: 16),
@@ -395,11 +396,12 @@ class _PictureModuleState extends State<PictureModule> {
                     child: GestureDetector(
                       onTap: () async {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
+                          SnackBar(
                             content: Text(
                               'Uploading..',
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: GoogleFonts.mcLaren(
+                                  fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: Colors.redAccent,
                           ),
@@ -412,11 +414,12 @@ class _PictureModuleState extends State<PictureModule> {
                               .pushReplacementNamed('/landingPage');
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               content: Text(
                                 'Failed!!',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: GoogleFonts.mcLaren(
+                                    fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -433,11 +436,11 @@ class _PictureModuleState extends State<PictureModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Upload Pictures",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                   color: Colors.white, fontSize: 10.0),
                             ),
                           ),
@@ -450,9 +453,9 @@ class _PictureModuleState extends State<PictureModule> {
             : Column(
                 children: [
                   numberTypeFieldWidget('Lead No', leadNoController, false),
-                  const Text(
+                  Text(
                     'OR',
-                    style: TextStyle(
+                    style: GoogleFonts.mcLaren(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.grey),
@@ -467,11 +470,12 @@ class _PictureModuleState extends State<PictureModule> {
                         if (phoneNumberController.text.isEmpty &&
                             leadNoController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: GoogleFonts.mcLaren(
+                                    fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -500,11 +504,11 @@ class _PictureModuleState extends State<PictureModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                   color: Colors.white, fontSize: 10.0),
                             ),
                           ),

@@ -1,6 +1,7 @@
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -198,11 +199,11 @@ class _DSIFormModuleState extends State<DSIFormModule> {
         });
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             content: Text(
               'No Data Found!!',
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -210,11 +211,11 @@ class _DSIFormModuleState extends State<DSIFormModule> {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             'Server Issue!!',
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -246,11 +247,11 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                 await roSearch();
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Please provide more than 5 character!!',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
+                                      style: GoogleFonts.mcLaren(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
@@ -266,10 +267,10 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                 shadowColor: Colors.blueAccent,
                                 color: Colors.blue[800],
                                 elevation: 7.0,
-                                child: const Center(
+                                child: Center(
                                   child: Text(
                                     'Search',
-                                    style: TextStyle(
+                                    style: GoogleFonts.mcLaren(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -389,11 +390,11 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                               bool isValid = formValidator();
                               if (isValid) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Saving..',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
+                                      style: GoogleFonts.mcLaren(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
@@ -405,11 +406,11 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                       .pushReplacementNamed('/landingPage');
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
+                                    SnackBar(
                                       content: Text(
                                         'Server Issue!!',
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: GoogleFonts.mcLaren(
                                             fontWeight: FontWeight.bold),
                                       ),
                                       backgroundColor: Colors.redAccent,
@@ -418,11 +419,11 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                 }
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Mandatory Field Data Missing!!',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
+                                      style: GoogleFonts.mcLaren(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
@@ -438,10 +439,10 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                 shadowColor: Colors.blueAccent,
                                 color: Colors.blue[800],
                                 elevation: 7.0,
-                                child: const Center(
+                                child: Center(
                                   child: Text(
                                     'Save',
-                                    style: TextStyle(
+                                    style: GoogleFonts.mcLaren(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),

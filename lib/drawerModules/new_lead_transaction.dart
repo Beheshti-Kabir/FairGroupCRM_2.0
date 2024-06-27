@@ -6,6 +6,7 @@ import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class NewLeadTransactionModule extends StatefulWidget {
@@ -222,7 +223,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             padding: const EdgeInsets.only(top: 8, left: 15),
                             child: Text(
                               'Inquiry Step Type* :',
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                   color: Colors.blue[700],
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold),
@@ -236,7 +237,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             icon: const Icon(Icons.arrow_downward),
                             iconSize: 18,
                             elevation: 0,
-                            style: const TextStyle(color: Colors.blue),
+                            style: GoogleFonts.mcLaren(color: Colors.blue),
                             underline: Container(
                               height: 2,
                               color: Colors.white,
@@ -259,7 +260,7 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 value: value,
                                 child: Text(
                                   value,
-                                  style: const TextStyle(
+                                  style: GoogleFonts.mcLaren(
                                       color: Colors.black,
                                       //fontWeight: FontWeight.bold,
                                       fontSize: 16),
@@ -311,11 +312,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                             .text.isEmpty) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
-                                            const SnackBar(
+                                            SnackBar(
                                               content: Text(
                                                 'Select a model name..',
                                                 textAlign: TextAlign.center,
-                                                style: TextStyle(
+                                                style: GoogleFonts.mcLaren(
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
@@ -348,11 +349,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                           //shadowColor: Colors.lightBlueAccent,
                                           color: Colors.blue[800],
                                           elevation: 7.0,
-                                          child: const Center(
+                                          child: Center(
                                             child: Text(
                                               "Add Model",
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
+                                              style: GoogleFonts.mcLaren(
                                                   color: Colors.white,
                                                   fontSize: 10,
                                                   fontWeight:
@@ -386,11 +387,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                             //shadowColor: Colors.lightBlueAccent,
                                             color: Colors.blue[800],
                                             elevation: 7.0,
-                                            child: const Center(
+                                            child: Center(
                                               child: Text(
                                                 "Cancel All\nModel",
                                                 textAlign: TextAlign.center,
-                                                style: TextStyle(
+                                                style: GoogleFonts.mcLaren(
                                                     color: Colors.white,
                                                     fontSize: 10,
                                                     fontWeight:
@@ -456,11 +457,12 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                               modelNameController.text == '' &&
                               isFinanceController.text == '') {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
                                   'Add Missing Fields!!',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.mcLaren(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -473,22 +475,24 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             leadStatusController.text != 'CANCEL') {
                           if (differenceInDays < 0) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
                                   "Previous Date Can't Be\nNext Follow-Up Date",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.mcLaren(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
                             );
                           } else if (differenceInDays > 30) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
                                   "Next Follow-Up Date Can't\nBe More Than One Month",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.mcLaren(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -498,12 +502,12 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 startTimeController.text.isEmpty &&
                                 leadStatusController.text.isEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
+                                SnackBar(
                                   content: Text(
                                     'Add Missing Fields!!',
                                     textAlign: TextAlign.center,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: GoogleFonts.mcLaren(
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -511,11 +515,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             } else {
                               if (isPressed) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Working on it..',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
+                                      style: GoogleFonts.mcLaren(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
@@ -523,11 +527,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                       'Saving..',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
+                                      style: GoogleFonts.mcLaren(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
@@ -554,22 +558,24 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                         } else {
                           if (isPressed) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
                                   'Working on it..',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.mcLaren(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
                             );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                 content: Text(
                                   'Saving..',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: GoogleFonts.mcLaren(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -599,10 +605,10 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Save",
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -617,27 +623,27 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
             : Column(
                 children: [
                   numberTypeFieldWidget('Lead No', leadNoController, false),
-                  const Text(
+                  Text(
                     'OR',
-                    style: TextStyle(
+                    style: GoogleFonts.mcLaren(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.grey),
                   ),
                   textTypeFieldWidget(
                       'Customer Name', customerNameController, false),
-                  const Text(
+                  Text(
                     'OR',
-                    style: TextStyle(
+                    style: GoogleFonts.mcLaren(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.grey),
                   ),
                   textTypeFieldWidget(
                       'Company Name', companyNameController, false),
-                  const Text(
+                  Text(
                     'OR',
-                    style: TextStyle(
+                    style: GoogleFonts.mcLaren(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.grey),
@@ -654,11 +660,12 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             customerNameController.text.isEmpty &&
                             companyNameController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
+                            SnackBar(
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: GoogleFonts.mcLaren(
+                                    fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -689,11 +696,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: GoogleFonts.mcLaren(
                                   color: Colors.white, fontSize: 10.0),
                             ),
                           ),
