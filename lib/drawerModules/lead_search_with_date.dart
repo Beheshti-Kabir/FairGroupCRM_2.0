@@ -1,7 +1,7 @@
 import 'package:crm_app/utils/api.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class DateSearchModule extends StatefulWidget {
   const DateSearchModule({Key? key}) : super(key: key);
@@ -55,7 +55,8 @@ class _DateSearchModuleState extends State<DateSearchModule> {
             content: Text(
               'NO DATA IN THIS LEAD MODE...',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -98,8 +99,8 @@ class _DateSearchModuleState extends State<DateSearchModule> {
                           content: Text(
                             'Searching..',
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.mcLaren(
-                                fontWeight: FontWeight.bold),
+                            style: //GoogleFonts.mcLaren
+                                TextStyle(fontWeight: FontWeight.bold),
                           ),
                           backgroundColor: Colors.redAccent,
                         ),
@@ -113,8 +114,8 @@ class _DateSearchModuleState extends State<DateSearchModule> {
                                 content: Text(
                                   'Input Date Range or Lead Status!!',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -131,7 +132,8 @@ class _DateSearchModuleState extends State<DateSearchModule> {
                         child: Center(
                           child: Text(
                             'Search',
-                            style: GoogleFonts.mcLaren(
+                            style: //GoogleFonts.mcLaren
+                                TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),

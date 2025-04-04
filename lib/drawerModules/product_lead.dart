@@ -3,7 +3,7 @@ import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -91,11 +91,12 @@ class _ProductModuleState extends State<ProductModule> {
       setState(() {});
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text(
             'Fill the mandatory fields!!',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -137,7 +138,8 @@ class _ProductModuleState extends State<ProductModule> {
       child: Text(
         title,
         textAlign: TextAlign.center,
-        style: GoogleFonts.mcLaren(fontWeight: weight, color: color),
+        style: //GoogleFonts.mcLaren
+            TextStyle(fontWeight: weight, color: color),
       ),
     );
   }
@@ -159,9 +161,10 @@ class _ProductModuleState extends State<ProductModule> {
                       color: Colors.blue[500],
                       height: 60.0,
                       width: MediaQuery.of(context).size.width,
-                      child: Text(
+                      child: const Text(
                         'Product Details',
-                        style: GoogleFonts.mcLaren(
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -211,11 +214,12 @@ class _ProductModuleState extends State<ProductModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "Add more items",
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 10.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
                             ),
                           ),
                         ),
@@ -330,12 +334,12 @@ class _ProductModuleState extends State<ProductModule> {
                     child: GestureDetector(
                       onTap: () async {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text(
                               'Saving..',
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: Colors.redAccent,
                           ),
@@ -370,12 +374,12 @@ class _ProductModuleState extends State<ProductModule> {
                                 .pushReplacementNamed('/landingPage');
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+                              const SnackBar(
                                 content: Text(
                                   'Server Issue!!',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -395,12 +399,13 @@ class _ProductModuleState extends State<ProductModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "Upload Products",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 15.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 15.0),
                             ),
                           ),
                         ),
@@ -412,12 +417,13 @@ class _ProductModuleState extends State<ProductModule> {
             : Column(
                 children: [
                   numberTypeFieldWidget('Lead No', leadNoController, false),
-                  Text(
+                  const Text(
                     'OR',
-                    style: GoogleFonts.mcLaren(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.grey),
                   ),
                   numberTypeFieldWidget(
                       'Phone Number', phoneNumberController, false),
@@ -429,12 +435,12 @@ class _ProductModuleState extends State<ProductModule> {
                         if (phoneNumberController.text.isEmpty &&
                             leadNoController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -451,12 +457,12 @@ class _ProductModuleState extends State<ProductModule> {
                             ),
                           );
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text(
                                 'Loading Products!!',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -492,12 +498,13 @@ class _ProductModuleState extends State<ProductModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 10.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
                             ),
                           ),
                         ),
@@ -594,7 +601,8 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                       await getProduct();
                     }),
                 hintText: 'Type here for product search',
-                hintStyle: GoogleFonts.mcLaren(color: Colors.grey),
+                hintStyle: //GoogleFonts.mcLaren
+                    TextStyle(color: Colors.grey),
               ),
             ),
           ),
@@ -624,12 +632,14 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                     if (Constants.companyCode == '2000') {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                             'Searching For Stock!!\nPlease wait for couple of seconds. ',
                                             textAlign: TextAlign.center,
-                                            style: GoogleFonts.mcLaren(
-                                                fontWeight: FontWeight.bold),
+                                            style: //GoogleFonts.mcLaren
+                                                TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                           ),
                                           backgroundColor: Colors.redAccent,
                                         ),
@@ -659,9 +669,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Name : ${productNameList[index]}',
-                                                  style: GoogleFonts.mcLaren(
-                                                      color: Colors.grey,
-                                                      fontSize: 15),
+                                                  style: //GoogleFonts.mcLaren
+                                                      const TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -671,9 +682,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Model : ${productModelList[index]}',
-                                                  style: GoogleFonts.mcLaren(
-                                                      color: Colors.grey,
-                                                      fontSize: 15),
+                                                  style: //GoogleFonts.mcLaren
+                                                      const TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -683,9 +695,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Price : ${productPriceList[index]}',
-                                                  style: GoogleFonts.mcLaren(
-                                                      color: Colors.grey,
-                                                      fontSize: 15),
+                                                  style: //GoogleFonts.mcLaren
+                                                      const TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -712,10 +725,11 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                   : const Center(
                       child: CircularProgressIndicator(),
                     )
-              : Center(
+              : const Center(
                   child: Text(
                     'Type Minimum 2 Characters \nThen Press Search Button',
-                    style: GoogleFonts.mcLaren(),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(),
                     textAlign: TextAlign.center,
                   ),
                 )

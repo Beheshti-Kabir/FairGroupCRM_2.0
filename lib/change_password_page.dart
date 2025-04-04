@@ -4,13 +4,14 @@ import 'package:crm_app/main.dart';
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class ChangePasswordPage extends StatefulWidget {
   const ChangePasswordPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _changePassword createState() {
     return _changePassword();
   }
@@ -131,12 +132,13 @@ class _changePassword extends State<ChangePasswordPage> {
                   bool isValid = formValidator();
                   if (isValid) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text(
                           'Saving Change..',
                           textAlign: TextAlign.center,
                           style:
-                              GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+                              //GoogleFonts.mcLaren
+                              TextStyle(fontWeight: FontWeight.bold),
                         ),
                         backgroundColor: Colors.redAccent,
                       ),
@@ -148,12 +150,12 @@ class _changePassword extends State<ChangePasswordPage> {
 
                     if (_newPassword.text != _reNewPassword.text) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                        const SnackBar(
                           content: Text(
                             "Typed Password Don't Match!!",
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.mcLaren(
-                                fontWeight: FontWeight.bold),
+                            style: //GoogleFonts.mcLaren
+                                TextStyle(fontWeight: FontWeight.bold),
                           ),
                           backgroundColor: Colors.redAccent,
                         ),
@@ -184,12 +186,12 @@ class _changePassword extends State<ChangePasswordPage> {
                           },
                         );
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text(
                               "Server or internet issue!!",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: Colors.redAccent,
                           ),
@@ -209,11 +211,12 @@ class _changePassword extends State<ChangePasswordPage> {
                   shadowColor: Colors.lightBlueAccent,
                   color: Colors.blue[800],
                   elevation: 7.0,
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Save Change",
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

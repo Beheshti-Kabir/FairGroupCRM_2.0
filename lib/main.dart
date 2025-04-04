@@ -80,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       );
       web_version = json.decode(response.body)['CRM_VERSION'];
-
       getRoutePath();
     } catch (e) {
       error = e.toString();

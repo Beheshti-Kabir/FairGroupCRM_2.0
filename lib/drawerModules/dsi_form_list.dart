@@ -1,7 +1,7 @@
 import 'package:crm_app/utils/api.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class DSIFormListModule extends StatefulWidget {
   const DSIFormListModule({Key? key}) : super(key: key);
@@ -34,7 +34,8 @@ class _DSIFormListModuleState extends State<DSIFormListModule> {
             content: Text(
               'NO DATA IN THIS LEAD MODE...',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -72,8 +73,8 @@ class _DSIFormListModuleState extends State<DSIFormListModule> {
                                   content: Text(
                                     'Input More Than 5 Character!!',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.mcLaren(
-                                        fontWeight: FontWeight.bold),
+                                    style: //GoogleFonts.mcLaren
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -90,7 +91,8 @@ class _DSIFormListModuleState extends State<DSIFormListModule> {
                           child: Center(
                             child: Text(
                               'Search',
-                              style: GoogleFonts.mcLaren(
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),

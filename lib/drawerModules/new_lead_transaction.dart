@@ -6,7 +6,7 @@ import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class NewLeadTransactionModule extends StatefulWidget {
@@ -76,8 +76,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
   getEmployInfo() async {
     employID = await getLocalEmployeeID();
     var data = await getData();
-    // [[leadStatusList],[leadSourceList],[salesPersonList],[paymentMethodList],
-    // [professionList],[leadInfoList],[modelList],[followUpModeList],[leadProspectTypeList]]
+    // [[leadStatusList],[leadSourceList],[salesPersonList],[paymentMethodList],[professionList],
+    // [verticalList],[modelList],[followUpModeList],[leadProspectTypeList]]
     followUpModeList = data[7];
     leadStatusList = data[0];
     leadProspectTypeList = data[8];
@@ -223,10 +223,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             padding: const EdgeInsets.only(top: 8, left: 15),
                             child: Text(
                               'Inquiry Step Type* :',
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.blue[700],
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.blue[700],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                             ),
                           ),
                           DropdownButton<String>(
@@ -237,7 +238,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             icon: const Icon(Icons.arrow_downward),
                             iconSize: 18,
                             elevation: 0,
-                            style: GoogleFonts.mcLaren(color: Colors.blue),
+                            style: //GoogleFonts.mcLaren
+                                TextStyle(color: Colors.blue),
                             underline: Container(
                               height: 2,
                               color: Colors.white,
@@ -260,10 +262,11 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 value: value,
                                 child: Text(
                                   value,
-                                  style: GoogleFonts.mcLaren(
-                                      color: Colors.black,
-                                      //fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(
+                                          color: Colors.black,
+                                          //fontWeight: FontWeight.bold,
+                                          fontSize: 16),
                                 ),
                               );
                             }).toList(),
@@ -316,9 +319,10 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                               content: Text(
                                                 'Select a model name..',
                                                 textAlign: TextAlign.center,
-                                                style: GoogleFonts.mcLaren(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                style: //GoogleFonts.mcLaren
+                                                    TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                               ),
                                               backgroundColor: Colors.redAccent,
                                             ),
@@ -353,11 +357,12 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                             child: Text(
                                               "Add Model",
                                               textAlign: TextAlign.center,
-                                              style: GoogleFonts.mcLaren(
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                  fontWeight:
-                                                      FontWeight.normal),
+                                              style: //GoogleFonts.mcLaren
+                                                  TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 10,
+                                                      fontWeight:
+                                                          FontWeight.normal),
                                             ),
                                           ),
                                         ),
@@ -391,11 +396,12 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                               child: Text(
                                                 "Cancel All\nModel",
                                                 textAlign: TextAlign.center,
-                                                style: GoogleFonts.mcLaren(
-                                                    color: Colors.white,
-                                                    fontSize: 10,
-                                                    fontWeight:
-                                                        FontWeight.normal),
+                                                style: //GoogleFonts.mcLaren
+                                                    TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 10,
+                                                        fontWeight:
+                                                            FontWeight.normal),
                                               ),
                                             ),
                                           ),
@@ -461,8 +467,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 content: Text(
                                   'Add Missing Fields!!',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -479,8 +485,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 content: Text(
                                   "Previous Date Can't Be\nNext Follow-Up Date",
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -491,8 +497,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 content: Text(
                                   "Next Follow-Up Date Can't\nBe More Than One Month",
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -506,8 +512,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                   content: Text(
                                     'Add Missing Fields!!',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.mcLaren(
-                                        fontWeight: FontWeight.bold),
+                                    style: //GoogleFonts.mcLaren
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -519,8 +525,9 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                     content: Text(
                                       'Working on it..',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.mcLaren(
-                                          fontWeight: FontWeight.bold),
+                                      style: //GoogleFonts.mcLaren
+                                          TextStyle(
+                                              fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
                                   ),
@@ -531,8 +538,9 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                     content: Text(
                                       'Saving..',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.mcLaren(
-                                          fontWeight: FontWeight.bold),
+                                      style: //GoogleFonts.mcLaren
+                                          TextStyle(
+                                              fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
                                   ),
@@ -562,8 +570,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 content: Text(
                                   'Working on it..',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -574,8 +582,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                                 content: Text(
                                   'Saving..',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -608,9 +616,10 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                           child: Center(
                             child: Text(
                               "Save",
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -625,28 +634,31 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                   numberTypeFieldWidget('Lead No', leadNoController, false),
                   Text(
                     'OR',
-                    style: GoogleFonts.mcLaren(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.grey),
                   ),
                   textTypeFieldWidget(
                       'Customer Name', customerNameController, false),
                   Text(
                     'OR',
-                    style: GoogleFonts.mcLaren(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.grey),
                   ),
                   textTypeFieldWidget(
                       'Company Name', companyNameController, false),
                   Text(
                     'OR',
-                    style: GoogleFonts.mcLaren(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.grey),
                   ),
                   numberTypeFieldWidget(
                       'Phone Number', phoneNumberController, false),
@@ -664,8 +676,8 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -700,8 +712,9 @@ class _NewLeadTransactionModuleState extends State<NewLeadTransactionModule> {
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 10.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
                             ),
                           ),
                         ),

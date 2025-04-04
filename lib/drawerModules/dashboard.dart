@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -178,7 +178,8 @@ class _DashBoardModuleState extends State<DashBoardModule> {
                     child: Text(
                       'Version ${Constants.version}\nDeveloped By Fair Group,\nIT Software Team',
                       textAlign: TextAlign.right,
-                      style: GoogleFonts.mcLaren(color: Colors.grey),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(color: Colors.grey),
                     ),
                   )
                 ],
@@ -214,7 +215,8 @@ class _DashBoardModuleState extends State<DashBoardModule> {
             child: Center(
               child: Text(
                 '$rowName\n$rowValue',
-                style: GoogleFonts.mcLaren(
+                style: //GoogleFonts.mcLaren
+                    TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),

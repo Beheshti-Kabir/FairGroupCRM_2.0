@@ -32,9 +32,9 @@ getData() async {
   List leadSourceList = [''];
   List leadStatusList = [''];
   List modelList = [''];
-  List leadInfoList = [''];
   List leadProspectTypeList = [''];
   List followUpModeList = [''];
+  List verticalList = [''];
 
   List<dynamic> returnList = [];
   var response = await http.post(Uri.parse('$localURL/getDataNew'),
@@ -45,7 +45,9 @@ getData() async {
       body: jsonEncode(<String, String>{
         'userID': Constants.employeeId,
       }));
-  // print(json.decode(response.body).toString());
+
+  print('industryTypeList=========' +
+      json.decode(response.body)['industryTypeList'].toString());
 
   var followupModeJSON = json.decode(response.body)['followupModeList'];
   int followupModeNumber = followupModeJSON.length;
@@ -61,12 +63,12 @@ getData() async {
   }
   returnList.insert(0, modelList);
 
-  var leadInfolJSON = json.decode(response.body)['leadInfoList'];
-  int leadInfoNumber = leadInfolJSON.length;
-  for (int i = 0; i < leadInfoNumber; i++) {
-    leadInfoList.insert(i + 1, leadInfolJSON[i]['name']);
+  var verticalJSON = json.decode(response.body)['industryTypeList'];
+  int verticalNumber = verticalJSON.length;
+  for (int i = 0; i < verticalNumber; i++) {
+    verticalList.insert(i + 1, verticalJSON[i]['name']);
   }
-  returnList.insert(0, leadInfoList);
+  returnList.insert(0, verticalList);
 
   var professionJSON = json.decode(response.body)['professionList'];
   int professionNumber = professionJSON.length;
@@ -105,10 +107,18 @@ getData() async {
   }
   returnList.insert(0, leadStatusList);
   returnList.insert(8, leadProspectTypeList);
-  print(returnList.toString());
+  print('test=============' + returnList[0].toString());
+  print('test=============' + returnList[1].toString());
+  print('test=============' + returnList[2].toString());
+  print('test=============' + returnList[3].toString());
+  print('test=============' + returnList[4].toString());
+  print('test=============' + returnList[5].toString());
+  print('test=============' + returnList[6].toString());
+  print('test=============' + returnList[7].toString());
+  print('test=============' + returnList[8].toString());
   return returnList;
-  // [[leadStatusList],[leadSourceList],[salesPersonList],[paymentMethodList],
-  // [professionList],[leadInfoList],[modelList],[followUpModeList],[leadProspectTypeList]]
+  // [[leadStatusList],[leadSourceList],[salesPersonList],[paymentMethodList],[professionList],
+  // [verticalList],[modelList],[followUpModeList],[leadProspectTypeList]]
 }
 
 getLeadSearchData(

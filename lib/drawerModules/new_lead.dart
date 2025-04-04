@@ -4,7 +4,7 @@ import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 // import 'package:path/path.dart';
 
@@ -68,25 +68,26 @@ class _NewLeadModuleState extends State<NewLeadModule> {
 
   List leadCategoryList = ['', 'CASH', 'HP', 'CARD', 'MFS', 'DEALER'];
   List verticalList = [
-    '',
-    'BFSI',
-    'NGO & MFI',
-    'RMG & TEXTILE',
-    'PHARMA & AGRO',
-    'HOSPITAL & CLINICS',
-    'EDUCATION',
-    'NEWS & MEDIA',
-    'FMCG',
-    'TELCO, ISP & ITES',
-    'LOGISTICS & TRANSPORTATION',
-    'HOSPITALITY & TOURISM',
-    'GOVT. & DEFENSE',
-    'ENERGY & POWER',
-    'REAL-ESTATE & CONSTRUCTION',
-    'CTG- RMG & SHIPPING',
-    'CTG- FMCG & OTHERS',
-    'OTHERS',
-    'SHOWROOM'
+    ''
+    // ,
+    // 'BFSI',
+    // 'NGO & MFI',
+    // 'RMG & TEXTILE',
+    // 'PHARMA & AGRO',
+    // 'HOSPITAL & CLINICS',
+    // 'EDUCATION',
+    // 'NEWS & MEDIA',
+    // 'FMCG',
+    // 'TELCO, ISP & ITES',
+    // 'LOGISTICS & TRANSPORTATION',
+    // 'HOSPITALITY & TOURISM',
+    // 'GOVT. & DEFENSE',
+    // 'ENERGY & POWER',
+    // 'REAL-ESTATE & CONSTRUCTION',
+    // 'CTG- RMG & SHIPPING',
+    // 'CTG- FMCG & OTHERS',
+    // 'OTHERS',
+    // 'SHOWROOM'
   ];
   List districtList = [
     '',
@@ -180,7 +181,8 @@ class _NewLeadModuleState extends State<NewLeadModule> {
   }
 
   prepareData() async {
-    // [[leadStatusList],[leadSourceList],[salesPersonList],[paymentMethodList],[professionList]]
+    // [[leadStatusList],[leadSourceList],[salesPersonList],[paymentMethodList],[professionList],
+    // [verticalList],[modelList],[followUpModeList],[leadProspectTypeList]]
 
     bsoController.text = await getLocalEmployeeSBU();
     var data = await getData();
@@ -189,6 +191,7 @@ class _NewLeadModuleState extends State<NewLeadModule> {
       paymentMethodList = data[3];
       salesPersonList = data[2];
       leadSourceList = data[1];
+      verticalList = data[5];
     });
   }
 
@@ -237,19 +240,13 @@ class _NewLeadModuleState extends State<NewLeadModule> {
       } else {
         remarksValidator = false;
       }
-      if (currentCarNameController.text.isEmpty) {
-        currentCarNameValidator = true;
-      } else {
-        currentCarNameValidator = false;
-      }
     });
     if (!phoneNumberValidator &&
         !customerNameValidator &&
         !companyNameValidator &&
         !addressValidator &&
         !emailValidator &&
-        !remarksValidator &&
-        !currentCarNameValidator) {
+        !remarksValidator) {
       return true;
     } else {
       return false;
@@ -309,15 +306,11 @@ class _NewLeadModuleState extends State<NewLeadModule> {
   }
 
   ifEmptyCheckFunction() {
-    if (professionController.text.isNotEmpty &&
-        salesPersionController.text.isNotEmpty &&
+    if (salesPersionController.text.isNotEmpty &&
         leadSourceController.text.isNotEmpty &&
-        remarksController.text.isNotEmpty &&
-        fincanceController.text.isNotEmpty &&
         nextFollowUpDateController.text.isNotEmpty &&
         verticalController.text.isNotEmpty &&
         districtNameController.text.isNotEmpty &&
-        tentativePurchaseDateController.text.isNotEmpty &&
         productNameController.text.isNotEmpty &&
         productModelController.text.isNotEmpty &&
         quantityController.text.isNotEmpty &&
@@ -325,7 +318,7 @@ class _NewLeadModuleState extends State<NewLeadModule> {
         prospectTypeCrontroller.text.isNotEmpty) {
       return true;
     } else {
-      false;
+      return false;
     }
   }
 
@@ -361,12 +354,13 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                 children: [
                   textTypeFieldWidget(
                       'Company Name', companyNameController, false),
-                  Text(
+                  const Text(
                     'OR',
-                    style: GoogleFonts.mcLaren(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.grey),
                   ),
                   numberTypeFieldWidget(
                       'Phone Number', phoneNumberController, false),
@@ -378,12 +372,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         if (phoneNumberController.text.isEmpty &&
                             companyNameController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -413,12 +407,13 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                           shadowColor: Colors.lightBlueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 10.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
                             ),
                           ),
                         ),
@@ -434,28 +429,32 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         customerNameController, customerNameValidator),
                     numberTypeFieldWidget('Contact Number*',
                         phoneNumberController, phoneNumberValidator),
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         "Please make sure the number is 11 digit for Bangladeshi Customers. And don\'t use characters like - or + or space in the phone number",
-                        style: GoogleFonts.mcLaren(color: Colors.grey),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(color: Colors.grey),
                       ),
                     ),
                     textTypeFieldWidget('Company Name*', companyNameController,
                         companyNameValidator),
+                    DropDownWidget('Vertical* :', 'Vertical* :', verticalList,
+                        verticalController),
                     textTypeFieldWidget(
                         'Email Address*', emailController, emailValidator),
                     textTypeFieldWidget(
                         'Address*', addressController, addressValidator),
-                    DropDownWidget('District Name* ', 'District Name* :',
-                        districtList, districtNameController),
-                    Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         "Please don't use any special characters like * & # in Address field.",
-                        style: GoogleFonts.mcLaren(color: Colors.grey),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(color: Colors.grey),
                       ),
                     ),
+                    DropDownWidget('District Name* ', 'District Name* :',
+                        districtList, districtNameController),
                     DatePickerWidget(
                         'Customer Date of Birth ', customerDOBController),
                     DropDownWidget('Profession* :', 'Profession :',
@@ -468,8 +467,6 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         paymentMethodList, paymentMethodController),
                     DropDownWidget('Lead Source* :', 'Lead Source :',
                         leadSourceList, leadSourceController),
-                    DropDownWidget('Vertical* :', 'Vertical* :', verticalList,
-                        verticalController),
                     DropDownWidget('Finance* :', 'Finance :', financeList,
                         fincanceController),
                     DatePickerWidget(
@@ -487,9 +484,10 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         color: Colors.blue[500],
                         height: 60.0,
                         width: MediaQuery.of(context).size.width,
-                        child: Text(
+                        child: const Text(
                           'Product Details',
-                          style: GoogleFonts.mcLaren(
+                          style: //GoogleFonts.mcLaren
+                              TextStyle(
                             fontSize: 20.0,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -536,16 +534,18 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                         onTap: () async {
                           bool isValid = formValidator();
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text(
                                 'Saving..',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
                           );
+                          print('fuckshitiamout ===' +
+                              ifEmptyCheckFunction().toString());
                           bool ifEmpty = ifEmptyCheckFunction();
                           if (isValid && !isSaved && ifEmpty) {
                             setState(() => isSaved = true);
@@ -564,12 +564,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                             } else {
                               setState(() => isSaved = false);
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                   content: Text(
                                     'Server Issue!!',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.mcLaren(
-                                        fontWeight: FontWeight.bold),
+                                    style: //GoogleFonts.mcLaren
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -577,12 +577,12 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                             }
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+                              const SnackBar(
                                 content: Text(
                                   'Some mandatory fields may be missing!!',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.mcLaren(
-                                      fontWeight: FontWeight.bold),
+                                  style: //GoogleFonts.mcLaren
+                                      TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 backgroundColor: Colors.redAccent,
                               ),
@@ -599,12 +599,13 @@ class _NewLeadModuleState extends State<NewLeadModule> {
                             shadowColor: Colors.lightBlueAccent,
                             color: Colors.blue[800],
                             elevation: 7.0,
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Save Lead",
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    color: Colors.white, fontSize: 10.0),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(
+                                        color: Colors.white, fontSize: 10.0),
                               ),
                             ),
                           ),
@@ -694,7 +695,8 @@ class _ProductAddModuleState extends State<ProductAddModule> {
           SizedBox(
             height: 50,
             child: TextField(
-              style: GoogleFonts.mcLaren(),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(),
               controller: productNameController,
               decoration: InputDecoration(
                 suffixIcon: IconButton(
@@ -703,7 +705,8 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                       await getProduct();
                     }),
                 hintText: 'Type here for product search',
-                hintStyle: GoogleFonts.mcLaren(color: Colors.grey),
+                hintStyle: //GoogleFonts.mcLaren
+                    TextStyle(color: Colors.grey),
               ),
             ),
           ),
@@ -733,12 +736,14 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                     if (Constants.companyCode == '2000') {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                             'Searching For Stock!!\nPlease wait for couple of seconds. ',
                                             textAlign: TextAlign.center,
-                                            style: GoogleFonts.mcLaren(
-                                                fontWeight: FontWeight.bold),
+                                            style: //GoogleFonts.mcLaren
+                                                TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                           ),
                                           backgroundColor: Colors.redAccent,
                                         ),
@@ -768,9 +773,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Name : ${productNameList[index]}',
-                                                  style: GoogleFonts.mcLaren(
-                                                      color: Colors.grey,
-                                                      fontSize: 15),
+                                                  style: //GoogleFonts.mcLaren
+                                                      const TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -780,9 +786,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Model : ${productModelList[index]}',
-                                                  style: GoogleFonts.mcLaren(
-                                                      color: Colors.grey,
-                                                      fontSize: 15),
+                                                  style: //GoogleFonts.mcLaren
+                                                      const TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -792,9 +799,10 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                               Expanded(
                                                 child: Text(
                                                   'Product Price : ${productPriceList[index]}',
-                                                  style: GoogleFonts.mcLaren(
-                                                      color: Colors.grey,
-                                                      fontSize: 15),
+                                                  style: //GoogleFonts.mcLaren
+                                                      const TextStyle(
+                                                          color: Colors.grey,
+                                                          fontSize: 15),
                                                 ),
                                               )
                                             ],
@@ -806,12 +814,13 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                                 );
                               }),
                         )
-                      : Center(
+                      : const Center(
                           child: Column(
                           children: [
                             Text(
                               'No Product Found!! \n\n\nPlease Search With A Different Product Name',
-                              style: GoogleFonts.mcLaren(),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(),
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(
@@ -822,10 +831,11 @@ class _ProductAddModuleState extends State<ProductAddModule> {
                   : const Center(
                       child: CircularProgressIndicator(),
                     )
-              : Center(
+              : const Center(
                   child: Text(
                     'Type Minimum 2 Characters \nThen Press Search Button',
-                    style: GoogleFonts.mcLaren(),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(),
                     textAlign: TextAlign.center,
                   ),
                 )

@@ -4,7 +4,7 @@ import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 // import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:login_prac/api_service.dart';
@@ -100,7 +100,8 @@ class _LoginPageState extends State<LoginPage> {
             content: Text(
               'Logged In..',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -111,7 +112,8 @@ class _LoginPageState extends State<LoginPage> {
             content: Text(
               'Wrong Credentials!!',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -123,7 +125,8 @@ class _LoginPageState extends State<LoginPage> {
           content: Text(
             'Network or Server Issue..',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -146,30 +149,33 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
                       child: Text(
                         'Fair',
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.blue[800],
-                            fontSize: 80,
-                            fontWeight: FontWeight.bold),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(
+                                color: Colors.blue[800],
+                                fontSize: 80,
+                                fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
                       padding: const EdgeInsets.fromLTRB(15.0, 175.0, 0.0, 0.0),
                       child: Text(
                         'Group',
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.blue[800],
-                            fontSize: 80,
-                            fontWeight: FontWeight.bold),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(
+                                color: Colors.blue[800],
+                                fontSize: 80,
+                                fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
                       padding: const EdgeInsets.fromLTRB(20.0, 260.0, 0.0, 0.0),
                       child: Text(
                         'CRM',
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.red[400],
-                            fontSize: 45,
-                            fontWeight: FontWeight.bold),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(
+                                color: Colors.red[400],
+                                fontSize: 45,
+                                fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -196,8 +202,8 @@ class _LoginPageState extends State<LoginPage> {
                               content: Text(
                                 'Logging In..\nWait for a while please..',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -207,8 +213,8 @@ class _LoginPageState extends State<LoginPage> {
                               content: Text(
                                 'Field Missing!!!!!',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -231,8 +237,10 @@ class _LoginPageState extends State<LoginPage> {
                       child: Center(
                         child: Text(
                           "Log In",
-                          style: GoogleFonts.mcLaren(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                          style: //GoogleFonts.mcLaren
+                              TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
@@ -249,7 +257,8 @@ class _LoginPageState extends State<LoginPage> {
                           'Loading..',
                           textAlign: TextAlign.center,
                           style:
-                              GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+                              //GoogleFonts.mcLaren
+                              TextStyle(fontWeight: FontWeight.bold),
                         ),
                         backgroundColor: Colors.redAccent,
                       ),
@@ -267,7 +276,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: Center(
                         child: Text(
                           'Change Password',
-                          style: GoogleFonts.mcLaren(
+                          style: //GoogleFonts.mcLaren
+                              TextStyle(
                             color: Colors.blue[800],
                             fontWeight: FontWeight.bold,
                           ),

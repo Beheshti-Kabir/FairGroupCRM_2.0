@@ -1,7 +1,7 @@
 import 'package:crm_app/utils/api.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class TestDriveModule extends StatefulWidget {
   const TestDriveModule({Key? key}) : super(key: key);
@@ -52,11 +52,12 @@ class _TestDriveModuleState extends State<TestDriveModule> {
       if (statusValue.isEmpty) {
         isSearching = false;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text(
               'NO DATA IN THIS LEAD MODE...',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -84,12 +85,13 @@ class _TestDriveModuleState extends State<TestDriveModule> {
               ),
               numberTypeFieldWidget(
                   'Lead No*', leadNoController, leadNoValidate),
-              Text(
+              const Text(
                 'OR',
-                style: GoogleFonts.mcLaren(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.grey),
+                style: //GoogleFonts.mcLaren
+                    TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.grey),
               ),
               DatePickerWidget('From Date*', fromDateController),
               DatePickerWidget('To Date*', toDateController),
@@ -110,12 +112,12 @@ class _TestDriveModuleState extends State<TestDriveModule> {
                                     testDriveStatusController.text.isNotEmpty))
                             ? setLoadingScreen()
                             : ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                   content: Text(
                                     'Input mandatory fields to search!!',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.mcLaren(
-                                        fontWeight: FontWeight.bold),
+                                    style: //GoogleFonts.mcLaren
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   backgroundColor: Colors.redAccent,
                                 ),
@@ -129,10 +131,11 @@ class _TestDriveModuleState extends State<TestDriveModule> {
                           shadowColor: Colors.blueAccent,
                           color: Colors.blue[800],
                           elevation: 7.0,
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               'Search',
-                              style: GoogleFonts.mcLaren(
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),

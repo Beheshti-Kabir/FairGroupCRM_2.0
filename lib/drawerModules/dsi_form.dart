@@ -1,7 +1,7 @@
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -203,7 +203,8 @@ class _DSIFormModuleState extends State<DSIFormModule> {
             content: Text(
               'No Data Found!!',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -215,7 +216,8 @@ class _DSIFormModuleState extends State<DSIFormModule> {
           content: Text(
             'Server Issue!!',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -251,8 +253,9 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                     content: Text(
                                       'Please provide more than 5 character!!',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.mcLaren(
-                                          fontWeight: FontWeight.bold),
+                                      style: //GoogleFonts.mcLaren
+                                          TextStyle(
+                                              fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
                                   ),
@@ -270,7 +273,8 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                 child: Center(
                                   child: Text(
                                     'Search',
-                                    style: GoogleFonts.mcLaren(
+                                    style: //GoogleFonts.mcLaren
+                                        TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -394,8 +398,9 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                     content: Text(
                                       'Saving..',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.mcLaren(
-                                          fontWeight: FontWeight.bold),
+                                      style: //GoogleFonts.mcLaren
+                                          TextStyle(
+                                              fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
                                   ),
@@ -410,8 +415,9 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                       content: Text(
                                         'Server Issue!!',
                                         textAlign: TextAlign.center,
-                                        style: GoogleFonts.mcLaren(
-                                            fontWeight: FontWeight.bold),
+                                        style: //GoogleFonts.mcLaren
+                                            TextStyle(
+                                                fontWeight: FontWeight.bold),
                                       ),
                                       backgroundColor: Colors.redAccent,
                                     ),
@@ -423,8 +429,9 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                     content: Text(
                                       'Mandatory Field Data Missing!!',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.mcLaren(
-                                          fontWeight: FontWeight.bold),
+                                      style: //GoogleFonts.mcLaren
+                                          TextStyle(
+                                              fontWeight: FontWeight.bold),
                                     ),
                                     backgroundColor: Colors.redAccent,
                                   ),
@@ -442,7 +449,8 @@ class _DSIFormModuleState extends State<DSIFormModule> {
                                 child: Center(
                                   child: Text(
                                     'Save',
-                                    style: GoogleFonts.mcLaren(
+                                    style: //GoogleFonts.mcLaren
+                                        TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),

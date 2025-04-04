@@ -1,6 +1,6 @@
 import 'package:crm_app/utils/sesssion_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class ProfileModule extends StatefulWidget {
   const ProfileModule({Key? key}) : super(key: key);
@@ -88,8 +88,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     Flexible(
                       child: Text(
                         employName,
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.black, fontSize: 20),
+                        style: //GoogleFonts.mcLaren
+                            const TextStyle(color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -107,8 +107,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     Flexible(
                       child: Text(
                         employSBU,
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.black, fontSize: 20),
+                        style: //GoogleFonts.mcLaren
+                            const TextStyle(color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -126,8 +126,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     Flexible(
                       child: Text(
                         employEmail,
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.black, fontSize: 20),
+                        style: //GoogleFonts.mcLaren
+                            const TextStyle(color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -144,8 +144,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     ),
                     Text(
                       employContact,
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.black, fontSize: 20),
+                      style: //GoogleFonts.mcLaren
+                          const TextStyle(color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),
@@ -161,8 +161,8 @@ class _ProfileModuleState extends State<ProfileModule> {
                     ),
                     Text(
                       employID,
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.black, fontSize: 20),
+                      style: //GoogleFonts.mcLaren
+                          const TextStyle(color: Colors.black, fontSize: 20),
                     )
                   ],
                 )
@@ -182,16 +182,17 @@ class _ProfileModuleState extends State<ProfileModule> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(children: [
-                Row(
+                const Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Administrator Information",
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.blue,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(
+                              color: Colors.blue,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -208,11 +209,11 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    Flexible(
+                    const Flexible(
                       child: Text(
                         'Rahmat Ullah Farhad',
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.black, fontSize: 20),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -227,11 +228,11 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    Flexible(
+                    const Flexible(
                       child: Text(
                         'Information Technology Software Support',
-                        style: GoogleFonts.mcLaren(
-                            color: Colors.black, fontSize: 20),
+                        style: //GoogleFonts.mcLaren
+                            TextStyle(color: Colors.black, fontSize: 20),
                       ),
                     )
                   ],
@@ -246,10 +247,10 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    Text(
+                    const Text(
                       'rahmat.u@fdl.com.bd',
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.black, fontSize: 20),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),
@@ -263,10 +264,10 @@ class _ProfileModuleState extends State<ProfileModule> {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    Text(
+                    const Text(
                       '01777702090',
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.black, fontSize: 20),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(color: Colors.black, fontSize: 20),
                     )
                   ],
                 ),

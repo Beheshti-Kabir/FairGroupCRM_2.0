@@ -1,7 +1,7 @@
 import 'package:crm_app/utils/api.dart';
 import 'package:crm_app/utils/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class PendingLeadModule extends StatefulWidget {
   const PendingLeadModule({Key? key}) : super(key: key);
@@ -60,7 +60,8 @@ class _PendingLeadModuleState extends State<PendingLeadModule> {
                           child: Center(
                             child: Text(
                               'Total Pending Lead\n${statusValue.length.toString()}',
-                              style: GoogleFonts.mcLaren(
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),

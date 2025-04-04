@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:crm_app/utils/api.dart';
 import 'package:crm_app/utils/constants.dart';
@@ -24,15 +24,15 @@ Widget textTypeFieldWidget(
         controller: typeController,
         maxLines: 10,
         minLines: 1,
-        style: GoogleFonts.mcLaren(
-            color: Colors.black, fontWeight: FontWeight.normal),
+        style: //GoogleFonts.mcLaren
+            const TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           border: InputBorder.none,
           errorText: typeValidate ? 'Value Can\'t Be Empty' : null,
           labelText: '$typeTitle :',
-          labelStyle: GoogleFonts.mcLaren(
-              fontWeight: FontWeight.bold, color: Colors.blue[700]),
+          labelStyle: //GoogleFonts.mcLaren
+              TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[700]),
         ),
       ),
     ),
@@ -53,15 +53,16 @@ Widget numberTypeFieldWidget(
           borderRadius: BorderRadius.circular(10)),
       child: TextField(
         controller: typeController,
-        style: GoogleFonts.mcLaren(
-            color: Colors.black, fontWeight: FontWeight.normal),
+        style: //GoogleFonts.mcLaren
+            const TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
         keyboardType: TextInputType.number,
         //  inputFormatters: [LengthLimitingTextInputFormatter(11)],
         decoration: InputDecoration(
           border: InputBorder.none,
           errorText: typeValidate ? 'Value Can\'t Be Empty' : null,
           labelText: '$typeTitle :',
-          labelStyle: GoogleFonts.mcLaren(
+          labelStyle: //GoogleFonts.mcLaren
+              TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.blue[700],
           ),
@@ -88,17 +89,19 @@ Widget textShowFieldWidget(String title, String value) {
       child: RichText(
         text: TextSpan(
             text: '$title : ',
-            style: GoogleFonts.mcLaren(
-                color: Colors.blue[700],
-                fontSize: 16,
-                fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(
+                    color: Colors.blue[700],
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
             children: <TextSpan>[
               TextSpan(
                 text: value,
-                style: GoogleFonts.mcLaren(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal),
+                style: //GoogleFonts.mcLaren
+                    const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal),
               )
             ]),
       ),
@@ -110,11 +113,15 @@ TableRow tableRowWidget(String titleName, String value) {
   return TableRow(children: [
     Padding(
       padding: const EdgeInsets.only(left: 4.0, right: 1),
-      child: Text(titleName, style: GoogleFonts.mcLaren(fontSize: 18.0)),
+      child: Text(titleName,
+          style: //GoogleFonts.mcLaren
+              const TextStyle(fontSize: 18.0)),
     ),
     Padding(
       padding: const EdgeInsets.only(left: 4.0, right: 1),
-      child: Text(value, style: GoogleFonts.mcLaren(fontSize: 18.0)),
+      child: Text(value,
+          style: //GoogleFonts.mcLaren
+              const TextStyle(fontSize: 18.0)),
     ),
   ]);
 }
@@ -280,11 +287,12 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                 (Constants.employeeId == 'T00100' ||
                                     Constants.employeeId == 'M00129'))
                             ? TableRow(children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 4.0),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 4.0),
                                   child: Text('Change Approval Status',
                                       style:
-                                          GoogleFonts.mcLaren(fontSize: 20.0)),
+                                          //GoogleFonts.mcLaren
+                                          TextStyle(fontSize: 20.0)),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(left: 4.0),
@@ -297,30 +305,33 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                           backgroundColor: Colors.white,
                                           elevation: 24,
                                           shadowColor: Colors.black,
-                                          title: Text(
+                                          title: const Text(
                                             'Status Change',
-                                            style: GoogleFonts.mcLaren(
-                                                color: Colors.grey,
-                                                fontSize: 25),
+                                            style: //GoogleFonts.mcLaren
+                                                TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 25),
                                           ),
                                           content: Text(
                                             'What status do you want for the Lead No: ${widget.listValue[index]['leadNo']} ?',
-                                            style: GoogleFonts.mcLaren(
-                                                color: Colors.grey,
-                                                fontSize: 18),
+                                            style: //GoogleFonts.mcLaren
+                                                const TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 18),
                                           ),
                                           actions: [
                                             CupertinoDialogAction(
                                               onPressed: () async {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
-                                                  SnackBar(
+                                                  const SnackBar(
                                                     content: Text(
                                                       'Saving...',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style:
-                                                          GoogleFonts.mcLaren(
+                                                          //GoogleFonts.mcLaren
+                                                          TextStyle(
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold),
@@ -341,13 +352,14 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                     'Done') {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
-                                                    SnackBar(
+                                                    const SnackBar(
                                                       content: Text(
                                                         'Status Change to APPROVED..',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
-                                                            GoogleFonts.mcLaren(
+                                                            //GoogleFonts.mcLaren
+                                                            TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold),
@@ -367,13 +379,14 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
-                                                    SnackBar(
+                                                    const SnackBar(
                                                       content: Text(
                                                         'There might be some issue.\nPlease try again..',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
-                                                            GoogleFonts.mcLaren(
+                                                            //GoogleFonts.mcLaren
+                                                            TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold),
@@ -384,24 +397,26 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                   );
                                                 }
                                               },
-                                              child: Text(
+                                              child: const Text(
                                                 'Approved',
-                                                style: GoogleFonts.mcLaren(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                style: //GoogleFonts.mcLaren
+                                                    TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                               ),
                                             ),
                                             CupertinoDialogAction(
                                               onPressed: () async {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
-                                                  SnackBar(
+                                                  const SnackBar(
                                                     content: Text(
                                                       'Saving...',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style:
-                                                          GoogleFonts.mcLaren(
+                                                          //GoogleFonts.mcLaren
+                                                          TextStyle(
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold),
@@ -420,13 +435,14 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                 if (respon == 'Done') {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
-                                                    SnackBar(
+                                                    const SnackBar(
                                                       content: Text(
                                                         'Status Change to DENIED..',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
-                                                            GoogleFonts.mcLaren(
+                                                            //GoogleFonts.mcLaren
+                                                            TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold),
@@ -446,13 +462,14 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
-                                                    SnackBar(
+                                                    const SnackBar(
                                                       content: Text(
                                                         'There might be some issue.\nPlease try again..',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
-                                                            GoogleFonts.mcLaren(
+                                                            //GoogleFonts.mcLaren
+                                                            TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold),
@@ -463,11 +480,12 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                   );
                                                 }
                                               },
-                                              child: Text(
+                                              child: const Text(
                                                 'Denied',
-                                                style: GoogleFonts.mcLaren(
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                style: //GoogleFonts.mcLaren
+                                                    TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold),
                                               ),
                                             ),
                                           ],
@@ -481,10 +499,11 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                                 ['tdApprovalStatus']
                                             .toString(),
                                         textAlign: TextAlign.left,
-                                        style: GoogleFonts.mcLaren(
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.black)),
+                                        style: //GoogleFonts.mcLaren
+                                            const TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.normal,
+                                                color: Colors.black)),
                                   ),
                                 ),
                               ])
@@ -503,10 +522,11 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                             widget.listValue[index]['isAutoFinance']
                                 .toString()),
                         TableRow(children: [
-                          Padding(
+                          const Padding(
                             padding: const EdgeInsets.only(left: 4.0, right: 1),
                             child: Text('',
-                                style: GoogleFonts.mcLaren(fontSize: 18.0)),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontSize: 18.0)),
                           ),
                           Padding(
                               padding: const EdgeInsets.only(left: 100),
@@ -560,7 +580,8 @@ class _ListViewWidgetState extends State<ListViewWidget> {
                                   size: 35,
                                 ),
                               )
-                              //Text(value, style: GoogleFonts.mcLaren(fontSize: 18.0)),
+                              //Text(value, style: //GoogleFonts.mcLaren
+                              // TextStyle(fontSize: 18.0)),
                               ),
                         ]),
                       ],
@@ -647,11 +668,12 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
       if (json.decode(response.body)['result'].toLowerCase().trim() ==
           'success') {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text(
               'Saved.',
               textAlign: TextAlign.center,
-              style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(fontWeight: FontWeight.bold),
             ),
             backgroundColor: Colors.redAccent,
           ),
@@ -661,11 +683,12 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text(
             'Server issues!!',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -728,12 +751,14 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                                     if (modelNameControllerMid.text.isEmpty) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                             'Select a model name..',
                                             textAlign: TextAlign.center,
-                                            style: GoogleFonts.mcLaren(
-                                                fontWeight: FontWeight.bold),
+                                            style: //GoogleFonts.mcLaren
+                                                TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                           ),
                                           backgroundColor: Colors.redAccent,
                                         ),
@@ -763,14 +788,16 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                                       //shadowColor: Colors.lightBlueAccent,
                                       color: Colors.blue[800],
                                       elevation: 7.0,
-                                      child: Center(
+                                      child: const Center(
                                         child: Text(
                                           "Add Model",
                                           textAlign: TextAlign.center,
-                                          style: GoogleFonts.mcLaren(
-                                              color: Colors.white,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.normal),
+                                          style: //GoogleFonts.mcLaren
+                                              TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10,
+                                                  fontWeight:
+                                                      FontWeight.normal),
                                         ),
                                       ),
                                     ),
@@ -800,14 +827,16 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                                         //shadowColor: Colors.lightBlueAccent,
                                         color: Colors.blue[800],
                                         elevation: 7.0,
-                                        child: Center(
+                                        child: const Center(
                                           child: Text(
                                             "Cancel All\nModel",
                                             textAlign: TextAlign.center,
-                                            style: GoogleFonts.mcLaren(
-                                                color: Colors.white,
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.normal),
+                                            style: //GoogleFonts.mcLaren
+                                                TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10,
+                                                    fontWeight:
+                                                        FontWeight.normal),
                                           ),
                                         ),
                                       ),
@@ -836,12 +865,12 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                     if (widget.testDriveStatusController.text == 'DONE' &&
                         widget.testDriveTimeController.text == '') {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                        const SnackBar(
                           content: Text(
                             'Input Test-Drive Time...',
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.mcLaren(
-                                fontWeight: FontWeight.bold),
+                            style: //GoogleFonts.mcLaren
+                                TextStyle(fontWeight: FontWeight.bold),
                           ),
                           backgroundColor: Colors.redAccent,
                         ),
@@ -849,12 +878,12 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                     } else {
                       if (!isUploading) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text(
                               'Saving..',
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: Colors.redAccent,
                           ),
@@ -865,12 +894,12 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                         await updateTestDriveData();
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text(
                               'Please Wait before sending another request..',
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: Colors.redAccent,
                           ),
@@ -886,11 +915,13 @@ class _TestDriveEditModuleState extends State<TestDriveEditModule> {
                       shadowColor: Colors.lightBlueAccent,
                       color: Colors.blue[800],
                       elevation: 7.0,
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Save",
-                          style: GoogleFonts.mcLaren(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                          style: //GoogleFonts.mcLaren
+                              TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
@@ -950,17 +981,19 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
           child: RichText(
             text: TextSpan(
                 text: '${widget.title} : ',
-                style: GoogleFonts.mcLaren(
-                    color: Colors.blue[700],
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                style: //GoogleFonts.mcLaren
+                    TextStyle(
+                        color: Colors.blue[700],
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                 children: <TextSpan>[
                   TextSpan(
                     text: widget.timeController.text,
-                    style: GoogleFonts.mcLaren(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal),
+                    style: //GoogleFonts.mcLaren
+                        const TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal),
                   )
                 ]),
           ),
@@ -1010,17 +1043,19 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           child: RichText(
             text: TextSpan(
                 text: '${widget.title} : ',
-                style: GoogleFonts.mcLaren(
-                    color: Colors.blue[700],
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                style: //GoogleFonts.mcLaren
+                    TextStyle(
+                        color: Colors.blue[700],
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                 children: <TextSpan>[
                   TextSpan(
                     text: widget.dateController.text,
-                    style: GoogleFonts.mcLaren(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal),
+                    style: //GoogleFonts.mcLaren
+                        const TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal),
                   )
                 ]),
           ),
@@ -1062,23 +1097,25 @@ class _DropDownWidgetState extends State<DropDownWidget> {
           children: [
             (widget.dropDownController.text.isEmpty)
                 ? Padding(
-                    padding: const EdgeInsets.only(top: 8, left: 15),
+                    padding: const EdgeInsets.only(top: 8, left: 10),
                     child: Text(
                       widget.unselectedTitle,
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.blue[700],
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(
+                              color: Colors.blue[700],
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
                     ),
                   )
                 : Padding(
                     padding: const EdgeInsets.only(top: 8, left: 15),
                     child: Text(
                       widget.selectedTitle,
-                      style: GoogleFonts.mcLaren(
-                          color: Colors.blue[700],
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
+                      style: //GoogleFonts.mcLaren
+                          TextStyle(
+                              color: Colors.blue[700],
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
                     ),
                   ),
             DropdownButton<String>(
@@ -1088,7 +1125,8 @@ class _DropDownWidgetState extends State<DropDownWidget> {
               icon: const Icon(Icons.arrow_downward),
               iconSize: 18,
               elevation: 0,
-              style: GoogleFonts.mcLaren(color: Colors.blue),
+              style: //GoogleFonts.mcLaren
+                  TextStyle(color: Colors.blue),
               underline: Container(
                 height: 2,
                 color: Colors.white,
@@ -1103,10 +1141,11 @@ class _DropDownWidgetState extends State<DropDownWidget> {
                   value: value,
                   child: Text(
                     value,
-                    style: GoogleFonts.mcLaren(
-                        color: Colors.black,
-                        //fontWeight: FontWeight.bold,
-                        fontSize: 16),
+                    style: //GoogleFonts.mcLaren
+                        const TextStyle(
+                            color: Colors.black,
+                            //fontWeight: FontWeight.bold,
+                            fontSize: 16),
                   ),
                 );
               }).toList(),
@@ -1164,10 +1203,11 @@ class _ImageCaptureWidgetState extends State<ImageCaptureWidget> {
                       children: [
                         TextSpan(
                           text: '${widget.title} :   ',
-                          style: GoogleFonts.mcLaren(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue[700],
-                              fontSize: 16),
+                          style: //GoogleFonts.mcLaren
+                              TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blue[700],
+                                  fontSize: 16),
                         ),
                         WidgetSpan(
                           alignment: PlaceholderAlignment.middle,
@@ -1248,11 +1288,12 @@ class _PopUpWidgetState extends State<PopUpWidget> {
     if (statusValue.isEmpty) {
       Constants.isDataAvailable = false;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text(
             'No Data Found!!',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),

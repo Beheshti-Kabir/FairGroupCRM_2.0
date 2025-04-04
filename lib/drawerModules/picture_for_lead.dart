@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:crm_app/utils/constants.dart';
 import 'package:crm_app/utils/widgets.dart';
@@ -60,7 +60,8 @@ class _PictureModuleState extends State<PictureModule> {
           content: Text(
             'Mendatory Picture Missing!!',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -99,7 +100,8 @@ class _PictureModuleState extends State<PictureModule> {
           content: Text(
             'Server Issue!!',
             textAlign: TextAlign.center,
-            style: GoogleFonts.mcLaren(fontWeight: FontWeight.bold),
+            style: //GoogleFonts.mcLaren
+                TextStyle(fontWeight: FontWeight.bold),
           ),
           backgroundColor: Colors.redAccent,
         ),
@@ -157,10 +159,11 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Visiting Card Front* :   ',
-                                        style: GoogleFonts.mcLaren(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.blue[700],
-                                            fontSize: 16),
+                                        style: //GoogleFonts.mcLaren
+                                            TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.blue[700],
+                                                fontSize: 16),
                                       ),
                                       WidgetSpan(
                                         alignment: PlaceholderAlignment.middle,
@@ -222,10 +225,11 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Visiting Card Back* :   ',
-                                        style: GoogleFonts.mcLaren(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.blue[700],
-                                            fontSize: 16),
+                                        style: //GoogleFonts.mcLaren
+                                            TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.blue[700],
+                                                fontSize: 16),
                                       ),
                                       WidgetSpan(
                                         alignment: PlaceholderAlignment.middle,
@@ -287,10 +291,11 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Group Picture :   ',
-                                        style: GoogleFonts.mcLaren(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.blue[700],
-                                            fontSize: 16),
+                                        style: //GoogleFonts.mcLaren
+                                            TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.blue[700],
+                                                fontSize: 16),
                                       ),
                                       WidgetSpan(
                                         alignment: PlaceholderAlignment.middle,
@@ -352,10 +357,11 @@ class _PictureModuleState extends State<PictureModule> {
                                     children: [
                                       TextSpan(
                                         text: 'Selfie* :   ',
-                                        style: GoogleFonts.mcLaren(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.blue[700],
-                                            fontSize: 16),
+                                        style: //GoogleFonts.mcLaren
+                                            TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.blue[700],
+                                                fontSize: 16),
                                       ),
                                       WidgetSpan(
                                         alignment: PlaceholderAlignment.middle,
@@ -400,8 +406,8 @@ class _PictureModuleState extends State<PictureModule> {
                             content: Text(
                               'Uploading..',
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  fontWeight: FontWeight.bold),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(fontWeight: FontWeight.bold),
                             ),
                             backgroundColor: Colors.redAccent,
                           ),
@@ -418,8 +424,8 @@ class _PictureModuleState extends State<PictureModule> {
                               content: Text(
                                 'Failed!!',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -440,8 +446,9 @@ class _PictureModuleState extends State<PictureModule> {
                             child: Text(
                               "Upload Pictures",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 10.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
                             ),
                           ),
                         ),
@@ -455,10 +462,11 @@ class _PictureModuleState extends State<PictureModule> {
                   numberTypeFieldWidget('Lead No', leadNoController, false),
                   Text(
                     'OR',
-                    style: GoogleFonts.mcLaren(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
+                    style: //GoogleFonts.mcLaren
+                        TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.grey),
                   ),
                   numberTypeFieldWidget(
                       'Phone Number', phoneNumberController, false),
@@ -474,8 +482,8 @@ class _PictureModuleState extends State<PictureModule> {
                               content: Text(
                                 'Fill any one field and search..',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.mcLaren(
-                                    fontWeight: FontWeight.bold),
+                                style: //GoogleFonts.mcLaren
+                                    TextStyle(fontWeight: FontWeight.bold),
                               ),
                               backgroundColor: Colors.redAccent,
                             ),
@@ -508,8 +516,9 @@ class _PictureModuleState extends State<PictureModule> {
                             child: Text(
                               "Search Lead",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.mcLaren(
-                                  color: Colors.white, fontSize: 10.0),
+                              style: //GoogleFonts.mcLaren
+                                  TextStyle(
+                                      color: Colors.white, fontSize: 10.0),
                             ),
                           ),
                         ),
